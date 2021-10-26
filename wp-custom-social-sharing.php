@@ -3,8 +3,8 @@
  * Plugin Name: WP Custom Social Sharing
  * Description: A plugin to display social sharing.
  * Version: 1.5
- * Author: WP Tiro
- * Author URI: http://wptiro.com
+ * Author: Alok Shrestha
+ * Author URI: https://alokshrestha.comnp
  * Text Domain: wcss-social-share
  * License: GPLv3 or later
  */
@@ -24,8 +24,8 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
         public function __construct() {
 
             $this->wcss_define_constants();
+            
             $this->wcss_default_options_settings();
-
 
             add_action( 'admin_menu', array( $this, 'wcss_add_menu_item' ) );
 
