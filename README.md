@@ -6,7 +6,6 @@ You can either enable/disable the social media profiles you want to activate and
 
 This plugin provides the capability to select the position (above content, after content, floating left and inside image) all at once and 3 different sizes ( small, medium and large ).
 
-Note: Whatsapp is enabled only for mobile or other small device browsers.
 
 **Plugin Features**
 
