@@ -3,14 +3,14 @@
  * Plugin Name: WP Custom Social Sharing
  * Description: A plugin to display social sharing.
  * Version: 1.5
- * Author: Alok Shrestha
- * Author URI: https://alokshrestha.comnp
+ * Author: WP Tiro
+ * Author URI: http://wptiro.com
  * Text Domain: wcss-social-share
  * License: GPLv3 or later
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 
 if ( ! class_exists( 'Wcss_Social_Share' ) ) {
@@ -27,9 +27,13 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
             
             $this->wcss_default_options_settings();
 
-            add_action( 'admin_menu', array( $this, 'wcss_add_menu_item' ) );
+            add_action( 'admin_menu', array( $this, 'wcss_add_menu_item' ) ); //add menu options to the admin panel’s
 
-            add_action( 'admin_enqueue_scripts', array( $this, 'wcss_admin_enqueues' ) );
+            add_action( 'admin_init', array( $this, 'wcss_register_settings' ) ); // registers a setting and validate its data.
+
+            add_action( 'admin_enqueue_scripts', array( $this, 'wcss_admin_enqueues' ) ); // enqueue scripts for admin purposes only
+
+            add_action( 'plugins_loaded', array( $this, 'includes' ) ); //fires once activated plugin is loaded 
 
         }
 
@@ -71,6 +75,10 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
         */
         public function wcss_admin_enqueues() {
 
+            $wcss_front = new Wcss_front_manager();
+
+            $wcss_front->wcss_dequeue_other_fontawesome();//dequeue font-awesome if exists.
+
             wp_enqueue_style( 'wp-color-picker' );
             wp_enqueue_style( 'wcss-admin-fontawesome', WCSS_PLUGIN_URL . 'assets/css/all.min.css' );
 
@@ -79,6 +87,89 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
 
             wp_enqueue_script( 'jquery-ui-sortable' );
             wp_enqueue_script( 'wcss-admin-script', WCSS_PLUGIN_URL . 'assets/js/wcss-admin-script.js', array( 'wp-color-picker' ), false, true );
+        }
+
+        /**
+        * Load Classes for front-end purposes
+        */
+        public function includes() {
+
+            if ( ! class_exists( 'Wcss_front_manager' ) ) {
+                include_once( WCSS_PLUGIN_DIR . 'includes/class-wcss-front-manager.php' );
+            }
+
+        }
+
+        /**
+        * Sanitize and register a setting
+        */
+        public function wcss_register_settings() {
+            register_setting( 'wcss_settings_options', 'wcss_settings_options', array( $this, 'wcss_sanitize_settings_options' ) );
+        }
+
+        /**
+        * Sanitize and return field/option  value
+        */
+        public function wcss_sanitize_settings_options() {
+
+            if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'wcss_settings_options-options' ) ) {
+                return false;
+            }
+
+            $wcss_settings_options  = get_option('wcss_settings_options');
+            $wcss_options           = $wcss_settings_options['wcss_social_sharing'];
+            $variables_array        = array();
+            $input_options          = array();
+            $posts_variables        = stripslashes_deep( $_POST['wcss_social_sharing'] );
+
+            echo "<pre>";
+            // print_r($posts_variables);
+            // print_r($input_options);
+            print_r($wcss_options);
+            echo "</pre>";
+
+            $social_options_array = array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'evernote', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'renren', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'viadeo', 'viber', 'vk', 'whatsapp', 'yammer', 'ycombinator', 'xing' );
+
+            $enabled_social_icons = array();
+
+            foreach ( $social_options_array as $option_value ) {
+
+                if ( isset( $posts_variables[$option_value]['enable'] ) && ! empty( $posts_variables[$option_value]['enable'] ) && 'yes' === $posts_variables[$option_value]['enable'] ) {
+
+                    $input_options[$option_value]['enable'] = 'yes';
+
+                    // Check if the button is enabled and push to the enabled array
+                    if ( !in_array( $option_value, $enabled_social_icons ) ) {
+                        array_push( $enabled_social_icons, $option_value );
+                    }
+
+                } else {
+                    $input_options[$option_value]['enable'] = '';
+                }
+
+
+                // validate all the social media icon colors
+                $input_options[$option_value]['color'] = ( ! empty( $posts_variables[$option_value]['color'] ) ) ? sanitize_hex_color( $posts_variables[$option_value]['color'] ) : $wcss_options[$option_value]['color'];
+            }
+
+            $variables_array['wcss_social_sharing']                 = $input_options; // assign input variable to $variables_array
+
+            $variables_array['wcss_social_sharing']['post_type'] = ( isset( $posts_variables['post_type'] ) && ! empty( $posts_variables['post_type'] ) ) ? $posts_variables['post_type'] : array(); // enable post type variables
+
+            $variables_array['wcss_social_sharing']['enabled_icons'] = $enabled_social_icons; // enable post type variables
+
+            $variables_array['wcss_social_sharing']['button_order'] = ( isset( $posts_variables['button_order'] ) && ! empty( $posts_variables['button_order'] ) ) ? sanitize_text_field( $posts_variables['button_order'] ) : 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,ycombinator,xing,yammer'; // assign the order of icon to display on the front
+
+            $variables_array['wcss_social_sharing']['icon_position'] = ( isset( $posts_variables['icon_position'] ) && ! empty( $posts_variables['icon_position'] ) ) ? $posts_variables['icon_position'] : array(); // assign the position of icons to display in the front
+
+            $variables_array['wcss_social_sharing']['button_size'] = ( isset( $posts_variables['button_size'] ) && ! empty( $posts_variables['button_size'] ) ) ? sanitize_text_field( $posts_variables['button_size'] ) : 'small'; // size of the social icons
+
+            $variables_array['wcss_social_sharing']['default_count'] = ( isset( $posts_variables['default_count'] ) && ! empty( $posts_variables['default_count'] ) ) ? intval( $posts_variables['default_count'] ) : '';
+
+            $variables_array['wcss_social_sharing']['button_label'] = ( isset( $posts_variables['button_label'] ) && ! empty( $posts_variables['button_label'] ) ) ? sanitize_text_field( $posts_variables['button_label'] ) : '';
+
+            
+            return $variables_array;
         }
 
 
@@ -90,114 +181,117 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
                 'wcss_social_sharing' => array(
                     'facebook'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#3b5998',
                     ),
                     'twitter'       => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#00acee',
                     ),
                     'pinterest'     => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#C92228',
                     ),
                     'linkedin'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#0077b5',
                     ),
                     'blogger'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#ff8b13',
                     ),
                     'buffer'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#3e3e3e',
                     ),
                     'digg'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#3e3e3e',
                     ),
                     'email'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#f4cd0b',
                     ),
                     'evernote'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#2dbe60',
                     ),
                     'flipboard'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#f43d3d',
                     ),
                     'odnoklassniki'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#ff8321',
                     ),
                     'pocket'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#ff384b',
                     ),
                     'reddit'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#ff4500',
                     ),
                     'renren'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#005fb1',
                     ),
                     'skype'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#06bcff',
                     ),
                     'stumbleupon'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#eb4924',
                     ),
                     'telegram'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#2ca5e0',
                     ),
                     'tumblr'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#3e3e3e',
                     ),
                     'viadeo'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#ff7452',
                     ),
                     'viber'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#9d62cc',
                     ),
                     'vk'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#3673be',
                     ),
                     'whatsapp'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#13d25a',
                     ),
                     'ycombinator'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#f26522',
                     ),
                     'xing'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#20a5a5',
                     ),
                     'yammer'      => array(
                         'enable' => 'yes',
-                        'color'  => '',
+                        'color'  => '#005ee2',
                     ),
                     'post_type'     => array(),
                     'button_order'  => 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,ycombinator,xing,yammer',
                     'icon_position' => array(),
                     'button_size'   => 'medium',
                     'button_label'  => 'Share This:',
-
+                    'default_count' => 3,
+                    'enabled_icons' => array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'evernote', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'renren', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'viadeo', 'viber', 'vk', 'whatsapp', 'yammer', 'ycombinator', 'xing' )
                 ),
             );
 
             $settings = get_option( 'wcss_settings_options' );
+
+            $default_setting = apply_filters( 'wcss_default_settings', $default_setting );
 
             if ( empty( $settings ) ) {
                 update_option( 'wcss_settings_options', $default_setting );

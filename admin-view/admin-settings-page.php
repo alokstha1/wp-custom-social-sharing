@@ -3,6 +3,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 $wcss_settings_options = get_option('wcss_settings_options');
 $wcss_options = $wcss_settings_options['wcss_social_sharing'];
+
+// echo "<pre>";
+// print_r($wcss_options);
+// echo "</pre>";
 ?>
 
 <div class="wptg-backend-wrap">
@@ -40,10 +44,15 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                     <h2 class="tab-title"><?php _e( 'General Settings', 'wcss-social-share' ); ?></h2>
 
                     <form action="options.php" method="POST">
+
                         <?php settings_fields( 'wcss_settings_options' ); ?>
 
                         <div class="form-group">
-                            <label for="sharebutton"><?php _e( 'Customize Button Settings', 'wcss-social-share'); ?></label>
+
+                            <label for="sharebutton">
+                                <?php _e( 'Customize Button Settings', 'wcss-social-share'); ?>
+                            </label>
+                            
                             <div class="form-control-wrap">
 
                                 <div id="sharebutton" class="wcss-button-container">
@@ -85,7 +94,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                 break;
 
                                                 case 'email':
-                                                echo sprintf( __('<a href="#" id="email" class="button icon-button email-icon" data-show="email-slide" ><i class="fab fa-email"></i>%s</a>'), __('Email', 'wcss-social-share') );
+                                                echo sprintf( __('<a href="#" id="email" class="button icon-button email-icon" data-show="email-slide" ><i class="far fa-envelope"></i>%s</a>'), __('Gmail', 'wcss-social-share') );
                                                 break;
 
                                                 case 'evernote':
@@ -160,7 +169,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             }
                                         }
                                         ?>
-                                        <input type="hidden" id="wcss-button-order-field" name="wcss_social_sharing[button_order]" value="<?php echo ( isset( $wcss_options['button_order'] ) && !empty( $wcss_options['button_order'] ) ) ? esc_attr( $wcss_options['button_order'] ) : 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,ycombinator,xing,yammer'; ?>" />
+                                        <input type="hidden" id="wcss-button-order-field" name="wcss_social_sharing[button_order]" value="<?php echo ( isset( $wcss_options['button_order'] ) && !empty( $wcss_options['button_order'] ) ) ? esc_attr( $wcss_options['button_order'] ) : 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,yammer,ycombinator,xing'; ?>" />
                                     </div>
 
                                     <!-- Facebook button setting -->
@@ -245,7 +254,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="bloggercolor">
-                                                    <input type="text" name="wcss_social_sharing[blogger][color]" id="bloggercolor" class="color-field" value="<?php echo ( isset( $wcss_options['blogger']['color'] ) && !empty( $wcss_options['blogger']['color'] ) ) ? esc_attr( $wcss_options['blogger']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[blogger][color]" id="bloggercolor" class="color-field" value="<?php echo ( isset( $wcss_options['blogger']['color'] ) && !empty( $wcss_options['blogger']['color'] ) ) ? esc_attr( $wcss_options['blogger']['color'] ) : '#ff8b13'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -263,7 +272,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="buffercolor">
-                                                    <input type="text" name="wcss_social_sharing[buffer][color]" id="buffercolor" class="color-field" value="<?php echo ( isset( $wcss_options['buffer']['color'] ) && !empty( $wcss_options['buffer']['color'] ) ) ? esc_attr( $wcss_options['buffer']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[buffer][color]" id="buffercolor" class="color-field" value="<?php echo ( isset( $wcss_options['buffer']['color'] ) && !empty( $wcss_options['buffer']['color'] ) ) ? esc_attr( $wcss_options['buffer']['color'] ) : '#3e3e3e'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -281,7 +290,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="diggcolor">
-                                                    <input type="text" name="wcss_social_sharing[digg][color]" id="diggcolor" class="color-field" value="<?php echo ( isset( $wcss_options['digg']['color'] ) && !empty( $wcss_options['digg']['color'] ) ) ? esc_attr( $wcss_options['digg']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[digg][color]" id="diggcolor" class="color-field" value="<?php echo ( isset( $wcss_options['digg']['color'] ) && !empty( $wcss_options['digg']['color'] ) ) ? esc_attr( $wcss_options['digg']['color'] ) : '#3e3e3e'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -299,7 +308,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="emailcolor">
-                                                    <input type="text" name="wcss_social_sharing[email][color]" id="emailcolor" class="color-field" value="<?php echo ( isset( $wcss_options['email']['color'] ) && !empty( $wcss_options['email']['color'] ) ) ? esc_attr( $wcss_options['email']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[email][color]" id="emailcolor" class="color-field" value="<?php echo ( isset( $wcss_options['email']['color'] ) && !empty( $wcss_options['email']['color'] ) ) ? esc_attr( $wcss_options['email']['color'] ) : '#f4cd0b'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -317,7 +326,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="evernotecolor">
-                                                    <input type="text" name="wcss_social_sharing[evernote][color]" id="evernotecolor" class="color-field" value="<?php echo ( isset( $wcss_options['evernote']['color'] ) && !empty( $wcss_options['evernote']['color'] ) ) ? esc_attr( $wcss_options['evernote']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[evernote][color]" id="evernotecolor" class="color-field" value="<?php echo ( isset( $wcss_options['evernote']['color'] ) && !empty( $wcss_options['evernote']['color'] ) ) ? esc_attr( $wcss_options['evernote']['color'] ) : '#2dbe60'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -335,7 +344,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="flipboardcolor">
-                                                    <input type="text" name="wcss_social_sharing[flipboard][color]" id="flipboardcolor" class="color-field" value="<?php echo ( isset( $wcss_options['flipboard']['color'] ) && !empty( $wcss_options['flipboard']['color'] ) ) ? esc_attr( $wcss_options['flipboard']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[flipboard][color]" id="flipboardcolor" class="color-field" value="<?php echo ( isset( $wcss_options['flipboard']['color'] ) && !empty( $wcss_options['flipboard']['color'] ) ) ? esc_attr( $wcss_options['flipboard']['color'] ) : '#f43d3d'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -353,7 +362,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="odnoklassnikicolor">
-                                                    <input type="text" name="wcss_social_sharing[odnoklassniki][color]" id="odnoklassnikicolor" class="color-field" value="<?php echo ( isset( $wcss_options['odnoklassniki']['color'] ) && !empty( $wcss_options['odnoklassniki']['color'] ) ) ? esc_attr( $wcss_options['odnoklassniki']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[odnoklassniki][color]" id="odnoklassnikicolor" class="color-field" value="<?php echo ( isset( $wcss_options['odnoklassniki']['color'] ) && !empty( $wcss_options['odnoklassniki']['color'] ) ) ? esc_attr( $wcss_options['odnoklassniki']['color'] ) : '#ff8321'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -371,7 +380,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="pocketcolor">
-                                                    <input type="text" name="wcss_social_sharing[pocket][color]" id="pocketcolor" class="color-field" value="<?php echo ( isset( $wcss_options['pocket']['color'] ) && !empty( $wcss_options['pocket']['color'] ) ) ? esc_attr( $wcss_options['pocket']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[pocket][color]" id="pocketcolor" class="color-field" value="<?php echo ( isset( $wcss_options['pocket']['color'] ) && !empty( $wcss_options['pocket']['color'] ) ) ? esc_attr( $wcss_options['pocket']['color'] ) : '#ff384b'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -389,7 +398,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="redditcolor">
-                                                    <input type="text" name="wcss_social_sharing[reddit][color]" id="redditcolor" class="color-field" value="<?php echo ( isset( $wcss_options['reddit']['color'] ) && !empty( $wcss_options['reddit']['color'] ) ) ? esc_attr( $wcss_options['reddit']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[reddit][color]" id="redditcolor" class="color-field" value="<?php echo ( isset( $wcss_options['reddit']['color'] ) && !empty( $wcss_options['reddit']['color'] ) ) ? esc_attr( $wcss_options['reddit']['color'] ) : '#ff4500'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -407,7 +416,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="renrencolor">
-                                                    <input type="text" name="wcss_social_sharing[renren][color]" id="renrencolor" class="color-field" value="<?php echo ( isset( $wcss_options['renren']['color'] ) && !empty( $wcss_options['renren']['color'] ) ) ? esc_attr( $wcss_options['renren']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[renren][color]" id="renrencolor" class="color-field" value="<?php echo ( isset( $wcss_options['renren']['color'] ) && !empty( $wcss_options['renren']['color'] ) ) ? esc_attr( $wcss_options['renren']['color'] ) : '#005fb1'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -425,7 +434,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="skypecolor">
-                                                    <input type="text" name="wcss_social_sharing[skype][color]" id="skypecolor" class="color-field" value="<?php echo ( isset( $wcss_options['skype']['color'] ) && !empty( $wcss_options['skype']['color'] ) ) ? esc_attr( $wcss_options['skype']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[skype][color]" id="skypecolor" class="color-field" value="<?php echo ( isset( $wcss_options['skype']['color'] ) && !empty( $wcss_options['skype']['color'] ) ) ? esc_attr( $wcss_options['skype']['color'] ) : '#06bcff'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -443,7 +452,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="stumbleuponcolor">
-                                                    <input type="text" name="wcss_social_sharing[stumbleupon][color]" id="stumbleuponcolor" class="color-field" value="<?php echo ( isset( $wcss_options['stumbleupon']['color'] ) && !empty( $wcss_options['stumbleupon']['color'] ) ) ? esc_attr( $wcss_options['stumbleupon']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[stumbleupon][color]" id="stumbleuponcolor" class="color-field" value="<?php echo ( isset( $wcss_options['stumbleupon']['color'] ) && !empty( $wcss_options['stumbleupon']['color'] ) ) ? esc_attr( $wcss_options['stumbleupon']['color'] ) : '#eb4924'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -461,7 +470,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="telegramcolor">
-                                                    <input type="text" name="wcss_social_sharing[telegram][color]" id="telegramcolor" class="color-field" value="<?php echo ( isset( $wcss_options['telegram']['color'] ) && !empty( $wcss_options['telegram']['color'] ) ) ? esc_attr( $wcss_options['telegram']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[telegram][color]" id="telegramcolor" class="color-field" value="<?php echo ( isset( $wcss_options['telegram']['color'] ) && !empty( $wcss_options['telegram']['color'] ) ) ? esc_attr( $wcss_options['telegram']['color'] ) : '#2ca5e0'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -479,7 +488,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="tumblrcolor">
-                                                    <input type="text" name="wcss_social_sharing[tumblr][color]" id="tumblrcolor" class="color-field" value="<?php echo ( isset( $wcss_options['tumblr']['color'] ) && !empty( $wcss_options['tumblr']['color'] ) ) ? esc_attr( $wcss_options['tumblr']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[tumblr][color]" id="tumblrcolor" class="color-field" value="<?php echo ( isset( $wcss_options['tumblr']['color'] ) && !empty( $wcss_options['tumblr']['color'] ) ) ? esc_attr( $wcss_options['tumblr']['color'] ) : '#3e3e3e'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -497,7 +506,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="viadeocolor">
-                                                    <input type="text" name="wcss_social_sharing[viadeo][color]" id="viadeocolor" class="color-field" value="<?php echo ( isset( $wcss_options['viadeo']['color'] ) && !empty( $wcss_options['viadeo']['color'] ) ) ? esc_attr( $wcss_options['viadeo']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[viadeo][color]" id="viadeocolor" class="color-field" value="<?php echo ( isset( $wcss_options['viadeo']['color'] ) && !empty( $wcss_options['viadeo']['color'] ) ) ? esc_attr( $wcss_options['viadeo']['color'] ) : '#ff7452'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -515,7 +524,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="vibercolor">
-                                                    <input type="text" name="wcss_social_sharing[viber][color]" id="vibercolor" class="color-field" value="<?php echo ( isset( $wcss_options['viber']['color'] ) && !empty( $wcss_options['viber']['color'] ) ) ? esc_attr( $wcss_options['viber']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[viber][color]" id="vibercolor" class="color-field" value="<?php echo ( isset( $wcss_options['viber']['color'] ) && !empty( $wcss_options['viber']['color'] ) ) ? esc_attr( $wcss_options['viber']['color'] ) : '#9d62cc'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -533,7 +542,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="vkcolor">
-                                                    <input type="text" name="wcss_social_sharing[vk][color]" id="vkcolor" class="color-field" value="<?php echo ( isset( $wcss_options['vk']['color'] ) && !empty( $wcss_options['vk']['color'] ) ) ? esc_attr( $wcss_options['vk']['color'] ) : '#0077b5'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[vk][color]" id="vkcolor" class="color-field" value="<?php echo ( isset( $wcss_options['vk']['color'] ) && !empty( $wcss_options['vk']['color'] ) ) ? esc_attr( $wcss_options['vk']['color'] ) : '#3673be'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -551,7 +560,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="whatsappcolor">
-                                                    <input type="text" name="wcss_social_sharing[whatsapp][color]" id="whatsappcolor" class="color-field" value="<?php echo ( isset( $wcss_options['whatsapp']['color'] ) && !empty( $wcss_options['whatsapp']['color'] ) ) ? esc_attr( $wcss_options['whatsapp']['color'] ) : '#43d854'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[whatsapp][color]" id="whatsappcolor" class="color-field" value="<?php echo ( isset( $wcss_options['whatsapp']['color'] ) && !empty( $wcss_options['whatsapp']['color'] ) ) ? esc_attr( $wcss_options['whatsapp']['color'] ) : '#13d25a'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -569,7 +578,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="ycombinatorcolor">
-                                                    <input type="text" name="wcss_social_sharing[ycombinator][color]" id="ycombinatorcolor" class="color-field" value="<?php echo ( isset( $wcss_options['ycombinator']['color'] ) && !empty( $wcss_options['ycombinator']['color'] ) ) ? esc_attr( $wcss_options['ycombinator']['color'] ) : '#43d854'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[ycombinator][color]" id="ycombinatorcolor" class="color-field" value="<?php echo ( isset( $wcss_options['ycombinator']['color'] ) && !empty( $wcss_options['ycombinator']['color'] ) ) ? esc_attr( $wcss_options['ycombinator']['color'] ) : '#f26522'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -587,7 +596,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="xingcolor">
-                                                    <input type="text" name="wcss_social_sharing[xing][color]" id="xingcolor" class="color-field" value="<?php echo ( isset( $wcss_options['xing']['color'] ) && !empty( $wcss_options['xing']['color'] ) ) ? esc_attr( $wcss_options['xing']['color'] ) : '#43d854'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[xing][color]" id="xingcolor" class="color-field" value="<?php echo ( isset( $wcss_options['xing']['color'] ) && !empty( $wcss_options['xing']['color'] ) ) ? esc_attr( $wcss_options['xing']['color'] ) : '#20a5a5'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -605,7 +614,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                             </label>
                                             <div class="color-select">
                                                 <label for="yammercolor">
-                                                    <input type="text" name="wcss_social_sharing[yammer][color]" id="yammercolor" class="color-field" value="<?php echo ( isset( $wcss_options['yammer']['color'] ) && !empty( $wcss_options['yammer']['color'] ) ) ? esc_attr( $wcss_options['yammer']['color'] ) : '#43d854'; ?>" />
+                                                    <input type="text" name="wcss_social_sharing[yammer][color]" id="yammercolor" class="color-field" value="<?php echo ( isset( $wcss_options['yammer']['color'] ) && !empty( $wcss_options['yammer']['color'] ) ) ? esc_attr( $wcss_options['yammer']['color'] ) : '#005ee2'; ?>" />
                                                     <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                 </label>
                                             </div>
@@ -620,6 +629,180 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                 </p>
                             </div>
                         </div>
+
+                        <!-- Sectin to select button for post types and custom post types-->
+                        <div class="form-group">
+
+                            <label for="displayon">
+                                <?php _e( 'Show buttons on', 'wcss-social-share'); ?>
+                            </label>
+
+                            <div class="form-control-wrap">
+
+                                <div id="displayon" class="wcss-button-container">
+
+                                    <?php
+
+                                    $post_types = get_post_types(array(
+                                        'show_ui' => true,
+                                        'show_in_menu' => true,
+                                        ), 'objects');
+
+                                    foreach ($post_types as $post_type) {
+                                        ?>
+                                        <div class="checkbox-radio-wrap">
+                                            <input type="checkbox" name="wcss_social_sharing[post_type][]" value="<?php echo $post_type->name; ?>" id="select-<?php echo $post_type->name; ?>" <?php checked( in_array( $post_type->name, $wcss_options['post_type'] ), true ); ?> />
+                                            <label class="mr10" for="select-<?php echo $post_type->name; ?>">
+                                                <?php echo $post_type->label; ?>
+                                            </label>
+                                        </div>
+
+                                        <?php
+                                    }
+                                    ?>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- End of Sectin to select button for post types and custom post types-->
+
+                        <!-- Sectin to select button position to display in front-->
+                        <div class="form-group">
+
+                            <label for="iconposition">
+                                <?php _e( 'Icon Position', 'wcss-social-share'); ?>
+                            </label>
+
+                            <div class="form-control-wrap">
+
+                                <div id="iconposition" class="wcss-button-container">
+
+                                    <div class="checkbox-radio-wrap">
+                                        <input type="checkbox" name="wcss_social_sharing[icon_position][]" value="after_content" id="select-after_content" <?php checked( in_array( 'after_content', $wcss_options['icon_position'] ), true ); ?> />
+                                        <label class="mr10" for="select-after_content">
+                                            <?php _e( 'After Content', 'wcss-social-share'); ?>
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox-radio-wrap">
+                                        <input type="checkbox" name="wcss_social_sharing[icon_position][]" value="above_content" id="select-above_content" <?php checked( in_array( 'above_content', $wcss_options['icon_position'] ), true ); ?> />
+                                        <label class="mr10" for="select-above_content">
+                                            <?php _e( 'Above Content', 'wcss-social-share'); ?>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="checkbox-radio-wrap">
+                                        <input type="checkbox" name="wcss_social_sharing[icon_position][]" value="float_left" id="select-float_left" <?php checked( in_array( 'float_left', $wcss_options['icon_position'] ), true ); ?> />
+                                        <label class="mr10" for="select-float_left">
+                                            <?php _e( 'Float Left', 'wcss-social-share'); ?>
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox-radio-wrap">
+                                        <input type="checkbox" name="wcss_social_sharing[icon_position][]" value="inside_image" id="select-inside_image" <?php checked( in_array( 'inside_image', $wcss_options['icon_position'] ), true ); ?> />
+                                        <label class="mr10" for="select-inside_image">
+                                            <?php _e( 'Inside Image', 'wcss-social-share'); ?>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- End of Sectin to select button position to display in front-->
+
+
+                        <!-- Sectin to select button sizes to display in front-->
+                        <div class="form-group">
+
+                            <label for="buttonsizes">
+                                <?php _e( 'Button Sizes', 'wcss-social-share' ); ?>
+                            </label>
+
+                            <div class="form-control-wrap">
+
+                                <div id="buttonsizes" class="wcss-button-container">
+
+                                    <div class="checkbox-radio-wrap">
+                                        <input id="small-button" type="radio" name="wcss_social_sharing[button_size]" value="small" <?php checked($wcss_options['button_size'] == 'small'); ?> />
+                                        <label class="mr10" for="small-button">
+                                            <?php _e( 'Small', 'wcss-social-share' ); ?>
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox-radio-wrap">
+                                        <input id="medium-button" type="radio" name="wcss_social_sharing[button_size]" value="medium" <?php checked($wcss_options['button_size'] == 'medium'); ?> />
+                                        <label class="mr10" for="medium-button">
+                                            <?php _e( 'Medium', 'wcss-social-share' ); ?>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="checkbox-radio-wrap">
+                                        <input id="large-button" type="radio" name="wcss_social_sharing[button_size]" value="large" <?php checked($wcss_options['button_size'] == 'large'); ?> />
+                                        <label class="mr10" for="large-button">
+                                            <?php _e( 'Large', 'wcss-social-share' ); ?>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- End of Sectin to select button sizes to display in front-->
+
+
+                        <!-- Sectin to display the number of icons initially in front-->
+                        <div class="form-group">
+
+                            <label for="default-count">
+                                <?php _e( 'Default Count', 'wcss-social-share' ); ?>
+                            </label>
+
+                            <div class="form-control-wrap">
+
+                                <div id="default-count" class="wcss-button-container">
+
+                                    <div class="input-field-wrap">
+                                        <input type="number" name="wcss_social_sharing[default_count]" value="<?php echo ( isset( $wcss_options['default_count'] ) && !empty( $wcss_options['default_count'] ) ) ? esc_attr( $wcss_options['default_count'] ) : 3; ?>" id="icon-default-count" />
+                                        <p class="description" ><?php _e( 'Show the number of icons initially.', 'wcss-social-share' ); ?></p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- End of Sectin to display the number of icons initially in front-->
+
+
+                        <!-- Sectin to change the button label to display in front-->
+                        <div class="form-group">
+
+                            <label for="buttonlabel">
+                                <?php _e( 'Button Label', 'wcss-social-share' ); ?>
+                            </label>
+
+                            <div class="form-control-wrap">
+
+                                <div id="buttonlabel" class="wcss-button-container">
+
+                                    <div class="input-field-wrap">
+                                        <input type="text" name="wcss_social_sharing[button_label]" value="<?php echo ( isset( $wcss_options['button_label'] ) && !empty( $wcss_options['button_label'] ) ) ? esc_attr( $wcss_options['button_label'] ) : ''; ?>" id="icon-label" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- End of  Sectin to change the button label to display in front-->
+
+                        <!-- submit button -->
+                        <?php submit_button( 'Save Changes', 'primary', 'submit_settings', false ); ?>
 
                     </form>
 
