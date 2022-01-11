@@ -128,7 +128,7 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
             print_r($wcss_options);
             echo "</pre>";
 
-            $social_options_array = array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'evernote', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'renren', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'viadeo', 'viber', 'vk', 'whatsapp', 'yammer', 'ycombinator', 'xing' );
+            $social_options_array = array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'whatsapp', 'xing' );
 
             $enabled_social_icons = array();
 
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
 
             $variables_array['wcss_social_sharing']['enabled_icons'] = $enabled_social_icons; // enable post type variables
 
-            $variables_array['wcss_social_sharing']['button_order'] = ( isset( $posts_variables['button_order'] ) && ! empty( $posts_variables['button_order'] ) ) ? sanitize_text_field( $posts_variables['button_order'] ) : 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,ycombinator,xing,yammer'; // assign the order of icon to display on the front
+            $variables_array['wcss_social_sharing']['button_order'] = ( isset( $posts_variables['button_order'] ) && ! empty( $posts_variables['button_order'] ) ) ? sanitize_text_field( $posts_variables['button_order'] ) : 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,flipboard,odnoklassniki,pocket,reddit,skype,stumbleupon,telegram,tumblr,whatsapp,xing'; // assign the order of icon to display on the front
 
             $variables_array['wcss_social_sharing']['icon_position'] = ( isset( $posts_variables['icon_position'] ) && ! empty( $posts_variables['icon_position'] ) ) ? $posts_variables['icon_position'] : array(); // assign the position of icons to display in the front
 
@@ -211,10 +211,6 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
                         'enable' => 'yes',
                         'color'  => '#f4cd0b',
                     ),
-                    'evernote'      => array(
-                        'enable' => 'yes',
-                        'color'  => '#2dbe60',
-                    ),
                     'flipboard'      => array(
                         'enable' => 'yes',
                         'color'  => '#f43d3d',
@@ -230,10 +226,6 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
                     'reddit'      => array(
                         'enable' => 'yes',
                         'color'  => '#ff4500',
-                    ),
-                    'renren'      => array(
-                        'enable' => 'yes',
-                        'color'  => '#005fb1',
                     ),
                     'skype'      => array(
                         'enable' => 'yes',
@@ -251,41 +243,21 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
                         'enable' => 'yes',
                         'color'  => '#3e3e3e',
                     ),
-                    'viadeo'      => array(
-                        'enable' => 'yes',
-                        'color'  => '#ff7452',
-                    ),
-                    'viber'      => array(
-                        'enable' => 'yes',
-                        'color'  => '#9d62cc',
-                    ),
-                    'vk'      => array(
-                        'enable' => 'yes',
-                        'color'  => '#3673be',
-                    ),
                     'whatsapp'      => array(
                         'enable' => 'yes',
                         'color'  => '#13d25a',
-                    ),
-                    'ycombinator'      => array(
-                        'enable' => 'yes',
-                        'color'  => '#f26522',
                     ),
                     'xing'      => array(
                         'enable' => 'yes',
                         'color'  => '#20a5a5',
                     ),
-                    'yammer'      => array(
-                        'enable' => 'yes',
-                        'color'  => '#005ee2',
-                    ),
                     'post_type'     => array(),
-                    'button_order'  => 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,ycombinator,xing,yammer',
+                    'button_order'  => 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,flipboard,odnoklassniki,pocket,reddit,skype,stumbleupon,telegram,tumblr,whatsapp,xing',
                     'icon_position' => array(),
                     'button_size'   => 'medium',
                     'button_label'  => 'Share This:',
                     'default_count' => 3,
-                    'enabled_icons' => array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'evernote', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'renren', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'viadeo', 'viber', 'vk', 'whatsapp', 'yammer', 'ycombinator', 'xing' )
+                    'enabled_icons' => array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'whatsapp', 'xing' )
                 ),
             );
 
