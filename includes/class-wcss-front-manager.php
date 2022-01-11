@@ -242,7 +242,7 @@ class Wcss_front_manager {
 		if ( $default_count < count($enabled_icons) ) {
 
 			$return_content .=  sprintf(
-				__( '<li class="wcss-all-networks" ><a href="#" class="all-network-link" title="%s"><i class="wcss-icon wcss-icon fas fa-ellipsis-h"></i> </a></li>', 'wcss-social-share' ),
+				__( '<li class="wcss-all-networks" ><a href="#" class="wcss-all-network-link" title="%s"><i class="wcss-icon wcss-icon fas fa-ellipsis-h"></i> </a></li>', 'wcss-social-share' ),
 				__( 'All Networks', 'wcss-social-share')
 				);
 
@@ -279,11 +279,12 @@ class Wcss_front_manager {
 
 				$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$get_permalink;
 				$return_content .=  sprintf(
-					__( '<li class="wcss-facebook" ><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-facebook-f"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-facebook" ><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-facebook-f"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$facebookURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Facebook', 'wcss-social-share')
+					__( 'Share on Facebook', 'wcss-social-share'),
+					__( 'Facebook', 'wcss-social-share')
 					);
 
 			}
@@ -293,11 +294,12 @@ class Wcss_front_manager {
 			if ( 'yes' == $wcss_options['twitter']['enable'] ) {
 				$twitterURL = 'https://twitter.com/intent/tweet?text='.$post_title.'&url='.$get_permalink;
 				$return_content .=  sprintf(
-					__( '<li class="wcss-twitter"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-twitter"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-twitter"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-twitter"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$twitterURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Twitter', 'wcss-social-share')
+					__( 'Share on Twitter', 'wcss-social-share'),
+					__( 'Twitter', 'wcss-social-share')
 					);
 			}
 			break;
@@ -309,11 +311,12 @@ class Wcss_front_manager {
 				$thumbnail_url = !empty($post_thumbnail[0]) ? $post_thumbnail[0] : '';
 				$pinterestURL =  'https://pinterest.com/pin/create/button/?url='.$get_permalink.'&media='.$thumbnail_url.'&description='.$post_title;
 				$return_content .=  sprintf(
-					__( '<li class="wcss-pinterest"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-pinterest-p"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-pinterest"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-pinterest-p"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$pinterestURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Pinterest', 'wcss-social-share')
+					__( 'Share on Pinterest', 'wcss-social-share'),
+					__( 'Pinterest', 'wcss-social-share')
 					);
 			}
 			break;
@@ -322,11 +325,12 @@ class Wcss_front_manager {
 			if ( 'yes' == $wcss_options['linkedin']['enable'] ) {
 				$linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-linkedin"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-linkedin-in"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-linkedin"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-linkedin-in"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$linkedInURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on LinkedIn', 'wcss-social-share')
+					__( 'Share on LinkedIn', 'wcss-social-share'),
+					__( 'LinkedIn', 'wcss-social-share')
 					);
 			}
 			break;
@@ -336,11 +340,12 @@ class Wcss_front_manager {
 			if ( 'yes' == $wcss_options['blogger']['enable'] ) {
 				$bloggerURL = 'https://www.blogger.com/blog_this.pyra?t&u='.$get_permalink.'&n='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-blogger"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-blogger-b"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-blogger"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-blogger-b"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Blogger', 'wcss-social-share')
+					__( 'Share on Blogger', 'wcss-social-share'),
+					__( 'Blogger', 'wcss-social-share')
 					);
 			}
 			break;
@@ -350,11 +355,12 @@ class Wcss_front_manager {
 			if ( 'yes' == $wcss_options['buffer']['enable'] ) {
 				$bloggerURL = 'https://bufferapp.com/add?url='.$get_permalink.'&title='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-buffer"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-buffer"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-buffer"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-buffer"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Buffer', 'wcss-social-share')
+					__( 'Share on Buffer', 'wcss-social-share'),
+					__( 'Buffer', 'wcss-social-share')
 					);
 			}
 			break;
@@ -363,11 +369,12 @@ class Wcss_front_manager {
 			if ( 'yes' == $wcss_options['digg']['enable'] ) {
 				$bloggerURL = 'http://digg.com/submit?url='.$get_permalink.'&title='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-digg"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-digg"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-digg"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-digg"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Digg', 'wcss-social-share')
+					__( 'Share on Digg', 'wcss-social-share'),
+					__( 'Digg', 'wcss-social-share')
 					);
 			}
 			break;
@@ -376,182 +383,124 @@ class Wcss_front_manager {
 			if ( 'yes' == $wcss_options['email']['enable'] ) {
 				$bloggerURL = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&body='.$get_permalink.'&su='.$post_title.'&ui=2&tf=1';
 				$return_content .= sprintf(
-					__( '<li class="wcss-email"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon far fa-envelope"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-email"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon far fa-envelope"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Gmail', 'wcss-social-share')
-					);
-			}
-			break;
-
-			case 'evernote':
-			if ( 'yes' == $wcss_options['evernote']['enable'] ) {
-				$bloggerURL = 'http://www.evernote.com/clip.action?url='.$get_permalink.'&title='.$post_title;
-				$return_content .= sprintf(
-					__( '<li class="wcss-evernote"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-evernote"></i> </a></li>', 'wcss-social-share' ),
-					$bloggerURL,
-					$escaped_js,
-					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Evernote', 'wcss-social-share')
+					__( 'Share on Gmail', 'wcss-social-share'),
+					__( 'Gmail', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'flipboard':
 			if ( 'yes' == $wcss_options['flipboard']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://share.flipboard.com/bookmarklet/popout?title='.$post_title.'&url='.$get_permalink;
 				$return_content .= sprintf(
-					__( '<li class="wcss-flipboard"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-flipboard"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-flipboard"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-flipboard"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Flipboard', 'wcss-social-share')
+					__( 'Share on Flipboard', 'wcss-social-share'),
+					__( 'Flipboard', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'odnoklassniki':
 			if ( 'yes' == $wcss_options['odnoklassniki']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://connect.ok.ru/offer?url='.$get_permalink.'&title='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-odnoklassniki"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-odnoklassniki"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-odnoklassniki"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-odnoklassniki"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Odnoklassniki', 'wcss-social-share')
+					__( 'Share on Odnoklassniki', 'wcss-social-share'),
+					__( 'Odnoklassniki', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'pocket':
 			if ( 'yes' == $wcss_options['pocket']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://getpocket.com/save?url='.$get_permalink;
 				$return_content .= sprintf(
-					__( '<li class="wcss-pocket"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-get-pocket"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-pocket"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-get-pocket"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Pocket', 'wcss-social-share')
+					__( 'Share on Pocket', 'wcss-social-share'),
+					__( 'Pocket', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'reddit':
 			if ( 'yes' == $wcss_options['reddit']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://reddit.com/submit?url='.$get_permalink.'&title='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-reddit"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-reddit"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-reddit"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-reddit"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Reddit', 'wcss-social-share')
-					);
-			}
-			break;
-
-
-			case 'renren':
-			if ( 'yes' == $wcss_options['renren']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
-				$return_content .= sprintf(
-					__( '<li class="wcss-renren"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-renren"></i> </a></li>', 'wcss-social-share' ),
-					$bloggerURL,
-					$escaped_js,
-					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Renren', 'wcss-social-share')
+					__( 'Share on Reddit', 'wcss-social-share'),
+					__( 'Reddit', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'skype':
 			if ( 'yes' == $wcss_options['skype']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://web.skype.com/share?url='.$get_permalink;
 				$return_content .= sprintf(
-					__( '<li class="wcss-skype"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-skype"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-skype"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-skype"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Skype', 'wcss-social-share')
+					__( 'Share on Skype', 'wcss-social-share'),
+					__( 'Skype', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'stumbleupon':
 			if ( 'yes' == $wcss_options['stumbleupon']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'http://www.stumbleupon.com/badge?url='.$get_permalink.'&title='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-stumbleupon"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-stumbleupon"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-stumbleupon"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-stumbleupon"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Stumbleupon', 'wcss-social-share')
+					__( 'Share on Stumbleupon', 'wcss-social-share'),
+					__( 'Stumbleupon', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'telegram':
 			if ( 'yes' == $wcss_options['telegram']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://telegram.me/share/url?url='.$get_permalink.'&title='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-telegram"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-telegram"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-telegram"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-telegram"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Telegram', 'wcss-social-share')
+					__( 'Share on Telegram', 'wcss-social-share'),
+					__( 'Telegram', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'tumblr':
 			if ( 'yes' == $wcss_options['tumblr']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://www.tumblr.com/widgets/share/tool?canonicalUrl='.$get_permalink.'&title='.$post_title.'&caption='.$post_title;
 				$return_content .= sprintf(
-					__( '<li class="wcss-tumblr"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-tumblr"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-tumblr"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-tumblr"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Tumblr', 'wcss-social-share')
-					);
-			}
-			break;
-
-			case 'viadeo':
-			if ( 'yes' == $wcss_options['viadeo']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
-				$return_content .= sprintf(
-					__( '<li class="wcss-viadeo"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-viadeo"></i> </a></li>', 'wcss-social-share' ),
-					$bloggerURL,
-					$escaped_js,
-					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Viadeo', 'wcss-social-share')
-					);
-			}
-			break;
-
-
-			case 'viber':
-			if ( 'yes' == $wcss_options['viber']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
-				$return_content .= sprintf(
-					__( '<li class="wcss-viber"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-viber"></i> </a></li>', 'wcss-social-share' ),
-					$bloggerURL,
-					$escaped_js,
-					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Viber', 'wcss-social-share')
-					);
-			}
-			break;
-
-			case 'vk':
-			if ( 'yes' == $wcss_options['vk']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
-				$return_content .= sprintf(
-					__( '<li class="wcss-vk"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-vk"></i> </a></li>', 'wcss-social-share' ),
-					$bloggerURL,
-					$escaped_js,
-					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on VK', 'wcss-social-share')
+					__( 'Share on Tumblr', 'wcss-social-share'),
+					__( 'Tumblr', 'wcss-social-share')
 					);
 			}
 			break;
@@ -560,55 +509,31 @@ class Wcss_front_manager {
 			if ( 'yes' == $wcss_options['whatsapp']['enable'] ) {
 				$whatsappURL = 'whatsapp://send?text='.$post_title . ' ' . $get_permalink;
 				$return_content .=  sprintf(
-					__( '<li class="wcss-whatsapp"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-whatsapp"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-whatsapp"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-whatsapp"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$whatsappURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Whatsapp', 'wcss-social-share')
+					__( 'Share on Whatsapp', 'wcss-social-share'),
+					__( 'Whatsapp', 'wcss-social-share')
 					);
 			}
 			break;
 
 			case 'xing':
 			if ( 'yes' == $wcss_options['xing']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
+				$bloggerURL = 'https://www.xing.com/app/user?op=share&url='.$get_permalink;
 				$return_content .= sprintf(
-					__( '<li class="wcss-xing"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-xing"></i> </a></li>', 'wcss-social-share' ),
+					__( '<li class="wcss-xing"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-xing"></i> <span class="wcss-text">%s</span> </a></li>', 'wcss-social-share' ),
 					$bloggerURL,
 					$escaped_js,
 					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Xing', 'wcss-social-share')
+					__( 'Share on Xing', 'wcss-social-share'),
+					__( 'Xing', 'wcss-social-share')
 					);
 			}
 			break;
 
-			case 'yammer':
-			if ( 'yes' == $wcss_options['yammer']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
-				$return_content .= sprintf(
-					__( '<li class="wcss-yammer"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-yammer"></i> </a></li>', 'wcss-social-share' ),
-					$bloggerURL,
-					$escaped_js,
-					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Yammer', 'wcss-social-share')
-					);
-			}
-			break;
-
-			case 'ycombinator':
-			if ( 'yes' == $wcss_options['ycombinator']['enable'] ) {
-				$bloggerURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$get_permalink.'&title='.$post_title;
-				$return_content .= sprintf(
-					__( '<li class="wcss-ycombinator"><a href="%s" onclick="%s" class="%s" target="_blank" title="%s"><i class="wcss-icon fab fa-y-combinator"></i> </a></li>', 'wcss-social-share' ),
-					$bloggerURL,
-					$escaped_js,
-					'wcss-share-btn wcss-'.$button_size,
-					__( 'Share on Ycombinator', 'wcss-social-share')
-					);
-			}
-			break;
-
-			// facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,ycombinator,xing,yammer
+			// facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,flipboard,odnoklassniki,pocket,reddit,skype,stumbleupon,telegram,tumblr,whatsapp,xing
 	
 		}
 
@@ -648,9 +573,6 @@ class Wcss_front_manager {
 			.wcss-content .wcss-email a.wcss-share-btn {
 				background: <?php echo esc_attr( $wcss_options['email']['color'] ); ?>;
 			}
-			.wcss-content .wcss-evernote a.wcss-share-btn {
-				background: <?php echo esc_attr( $wcss_options['evernote']['color'] ); ?>;
-			}
 			.wcss-content .wcss-flipboard a.wcss-share-btn {
 				background: <?php echo esc_attr( $wcss_options['flipboard']['color'] ); ?>;
 			}
@@ -662,9 +584,6 @@ class Wcss_front_manager {
 			}
 			.wcss-content .wcss-reddit a.wcss-share-btn {
 				background: <?php echo esc_attr( $wcss_options['reddit']['color'] ); ?>;
-			}
-			.wcss-content .wcss-renren a.wcss-share-btn {
-				background: <?php echo esc_attr( $wcss_options['renren']['color'] ); ?>;
 			}
 			.wcss-content .wcss-skype a.wcss-share-btn {
 				background: <?php echo esc_attr( $wcss_options['skype']['color'] ); ?>;
@@ -678,26 +597,11 @@ class Wcss_front_manager {
 			.wcss-content .wcss-tumblr a.wcss-share-btn {
 				background: <?php echo esc_attr( $wcss_options['tumblr']['color'] ); ?>;
 			}
-			.wcss-content .wcss-viadeo a.wcss-share-btn {
-				background: <?php echo esc_attr( $wcss_options['viadeo']['color'] ); ?>;
-			}
-			.wcss-content .wcss-viber a.wcss-share-btn {
-				background: <?php echo esc_attr( $wcss_options['viber']['color'] ); ?>;
-			}
-			.wcss-content .wcss-vk a.wcss-share-btn {
-				background: <?php echo esc_attr( $wcss_options['vk']['color'] ); ?>;
-			}
 			.wcss-content .wcss-whatsapp a.wcss-share-btn {
 				background: <?php echo esc_attr( $wcss_options['whatsapp']['color'] ); ?>;
 			}
-			.wcss-content .wcss-ycombinator a.wcss-share-btn {
-				background: <?php echo esc_attr( $wcss_options['ycombinator']['color'] ); ?>;
-			}
 			.wcss-content .wcss-xing a.wcss-share-btn {
 				background: <?php echo esc_attr( $wcss_options['xing']['color'] ); ?>;
-			}
-			.wcss-content .wcss-yammer a.wcss-share-btn {
-				background: <?php echo esc_attr( $wcss_options['yammer']['color'] ); ?>;
 			}
 		</style>
 		<?php
@@ -722,6 +626,7 @@ class Wcss_front_manager {
 
 		/*popup of all the button*/
 		echo '<div class="wcss-all-networks-container">';
+		echo '<div class="wcss-popup-overlay"></div>';
 			foreach ( $exploded_order as $key => $icon_value ) {
 				echo $this->wcss_render_button( $wcss_options, $icon_value, $get_permalink, $button_size, $post, $post_title );
 			}
