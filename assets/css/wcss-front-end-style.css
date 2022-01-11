@@ -115,3 +115,16 @@
 .wcc-onmobile .wcss-social-sharing .wcss-content .wcss-whatsapp{
     display: inline-block;
 }
+
+
+
+/***PopUp Wrapper ***/
+body.wcss-popup-enable .wcss-all-networks-container .wcss-popup-overlay {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY( -50% );
+}
+
+span.wcss-text {
+    display: none;
+}
