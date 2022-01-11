@@ -97,28 +97,24 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                 echo sprintf( __('<a href="#" id="email" class="button icon-button email-icon" data-show="email-slide" ><i class="far fa-envelope"></i>%s</a>'), __('Gmail', 'wcss-social-share') );
                                                 break;
 
-                                                case 'evernote':
-                                                echo sprintf( __('<a href="#" id="evernote" class="button icon-button evernote-icon" data-show="evernote-slide" ><i class="fab fa-evernote"></i>%s</a>'), __('Evernote', 'wcss-social-share') );
-                                                break;
-
                                                 case 'flipboard':
                                                 echo sprintf( __('<a href="#" id="flipboard" class="button icon-button flipboard-icon" data-show="flipboard-slide" ><i class="fab fa-flipboard"></i>%s</a>'), __('Flipboard', 'wcss-social-share') );
                                                 break;
+
+                                                // case 'myspace':
+                                                // echo sprintf( __('<a href="#" id="myspace" class="button icon-button myspace-icon" data-show="myspace-slide" ><i class="fab fa-myspace"></i>%s</a>'), __('Myspace', 'wcss-social-share') );
+                                                // break;
 
                                                 case 'odnoklassniki':
                                                 echo sprintf( __('<a href="#" id="odnoklassniki" class="button icon-button odnoklassniki-icon" data-show="odnoklassniki-slide" ><i class="fab fa-odnoklassniki"></i>%s</a>'), __('Odnoklassniki', 'wcss-social-share') );
                                                 break;
 
                                                 case 'pocket':
-                                                echo sprintf( __('<a href="#" id="pocket" class="button icon-button pocket-icon" data-show="pocket-slide" ><i class="fab fa-pocket"></i>%s</a>'), __('Pocket', 'wcss-social-share') );
+                                                echo sprintf( __('<a href="#" id="pocket" class="button icon-button pocket-icon" data-show="pocket-slide" ><i class="fab fa-get-pocket"></i>%s</a>'), __('Pocket', 'wcss-social-share') );
                                                 break;
 
                                                 case 'reddit':
                                                 echo sprintf( __('<a href="#" id="reddit" class="button icon-button reddit-icon" data-show="reddit-slide" ><i class="fab fa-reddit"></i>%s</a>'), __('Reddit', 'wcss-social-share') );
-                                                break;
-
-                                                case 'renren':
-                                                echo sprintf( __('<a href="#" id="renren" class="button icon-button renren-icon" data-show="renren-slide" ><i class="fab fa-renren"></i>%s</a>'), __('Renren', 'wcss-social-share') );
                                                 break;
 
                                                 case 'skype':
@@ -137,39 +133,23 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                 echo sprintf( __('<a href="#" id="tumblr" class="button icon-button tumblr-icon" data-show="tumblr-slide" ><i class="fab fa-tumblr"></i>%s</a>'), __('Tumblr', 'wcss-social-share') );
                                                 break;
 
-                                                case 'viadeo':
-                                                echo sprintf( __('<a href="#" id="viadeo" class="button icon-button viadeo-icon" data-show="viadeo-slide" ><i class="fab fa-viadeo"></i>%s</a>'), __('Viadeo', 'wcss-social-share') );
-                                                break;
-
-                                                case 'viber':
-                                                echo sprintf( __('<a href="#" id="viber" class="button icon-button viber-icon" data-show="viber-slide" ><i class="fab fa-viber"></i>%s</a>'), __('Viber', 'wcss-social-share') );
-                                                break;
-
-                                                case 'vk':
-                                                echo sprintf( __('<a href="#" id="vk" class="button icon-button vk-icon" data-show="vk-slide" ><i class="fab fa-vk"></i>%s</a>'), __('VK', 'wcss-social-share') );
-                                                break;
+                                                // case 'vk':
+                                                // echo sprintf( __('<a href="#" id="vk" class="button icon-button vk-icon" data-show="vk-slide" ><i class="fab fa-vk"></i>%s</a>'), __('VK', 'wcss-social-share') );
+                                                // break;
 
 
                                                 case 'whatsapp':
                                                 echo sprintf( __('<a href="#" id="whatsapp" class="button icon-button whatsapp-icon" data-show="whatsapp-slide" ><i class="fab fa-whatsapp"></i>%s</a>'), __('Whatsapp', 'wcss-social-share') );
                                                 break;
 
-                                                case 'ycombinator':
-                                                echo sprintf( __('<a href="#" id="ycombinator" class="button icon-button ycombinator-icon" data-show="ycombinator-slide" ><i class="fab fa-ycombinator"></i>%s</a>'), __('Y Combinator', 'wcss-social-share') );
-                                                break;
-
                                                 case 'xing':
                                                 echo sprintf( __('<a href="#" id="xing" class="button icon-button xing-icon" data-show="xing-slide" ><i class="fab fa-xing"></i>%s</a>'), __('Xing', 'wcss-social-share') );
-                                                break;
-
-                                                case 'yammer':
-                                                echo sprintf( __('<a href="#" id="yammer" class="button icon-button yammer-icon" data-show="yammer-slide" ><i class="fab fa-yammer"></i>%s</a>'), __('Yammer', 'wcss-social-share') );
                                                 break;
 
                                             }
                                         }
                                         ?>
-                                        <input type="hidden" id="wcss-button-order-field" name="wcss_social_sharing[button_order]" value="<?php echo ( isset( $wcss_options['button_order'] ) && !empty( $wcss_options['button_order'] ) ) ? esc_attr( $wcss_options['button_order'] ) : 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,evernote,flipboard,odnoklassniki,pocket,reddit,renren,skype,stumbleupon,telegram,tumblr,viadeo,viber,vk,whatsapp,yammer,ycombinator,xing'; ?>" />
+                                        <input type="hidden" id="wcss-button-order-field" name="wcss_social_sharing[button_order]" value="<?php echo ( isset( $wcss_options['button_order'] ) && !empty( $wcss_options['button_order'] ) ) ? esc_attr( $wcss_options['button_order'] ) : 'facebook,twitter,pinterest,linkedin,blogger,buffer,digg,email,flipboard,odnoklassniki,pocket,reddit,skype,stumbleupon,telegram,tumblr,whatsapp,xing'; ?>" />
                                     </div>
 
                                     <!-- Facebook button setting -->
@@ -316,24 +296,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                     </div>
                                     <!--End of Email button setting -->
 
-                                    <!-- Evernote button setting -->
-                                    <div class="wcss-share-item item evernote">
-
-                                        <div class="slide-section closed" id="evernote-slide">
-                                            <label for="enableevernote">
-                                                <input type="checkbox" name="wcss_social_sharing[evernote][enable]" value="yes" id="enableevernote" <?php checked( ( 'yes' === $wcss_options['evernote']['enable'] ), true ); ?> />
-                                                <?php _e( 'Enable Evernote', 'wcss-social-share' ); ?>
-                                            </label>
-                                            <div class="color-select">
-                                                <label for="evernotecolor">
-                                                    <input type="text" name="wcss_social_sharing[evernote][color]" id="evernotecolor" class="color-field" value="<?php echo ( isset( $wcss_options['evernote']['color'] ) && !empty( $wcss_options['evernote']['color'] ) ) ? esc_attr( $wcss_options['evernote']['color'] ) : '#2dbe60'; ?>" />
-                                                    <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End of Evernote button setting -->
-
                                     <!-- Flipboard button setting -->
                                     <div class="wcss-share-item item flipboard">
 
@@ -351,6 +313,26 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                         </div>
                                     </div>
                                     <!--End of Flipboard button setting -->
+
+                                    <?php /* ?>
+                                    <!-- myspace button setting -->
+                                    <div class="wcss-share-item item myspace">
+
+                                        <div class="slide-section closed" id="myspace-slide">
+                                            <label for="enablemyspace">
+                                                <input type="checkbox" name="wcss_social_sharing[myspace][enable]" value="yes" id="enablemyspace" <?php checked( ( 'yes' === $wcss_options['myspace']['enable'] ), true ); ?> />
+                                                <?php _e( 'Enable Myspace', 'wcss-social-share' ); ?>
+                                            </label>
+                                            <div class="color-select">
+                                                <label for="myspacecolor">
+                                                    <input type="text" name="wcss_social_sharing[myspace][color]" id="myspacecolor" class="color-field" value="<?php echo ( isset( $wcss_options['myspace']['color'] ) && !empty( $wcss_options['myspace']['color'] ) ) ? esc_attr( $wcss_options['myspace']['color'] ) : '#f43d3d'; ?>" />
+                                                    <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End of myspace button setting -->
+                                    <?php */ ?>
 
                                     <!-- Odnoklassniki button setting -->
                                     <div class="wcss-share-item item odnoklassniki">
@@ -405,24 +387,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                         </div>
                                     </div>
                                     <!--End of Reddit button setting -->
-
-                                    <!-- Renren button setting -->
-                                    <div class="wcss-share-item item renren">
-
-                                        <div class="slide-section closed" id="renren-slide">
-                                            <label for="enablerenren">
-                                                <input type="checkbox" name="wcss_social_sharing[renren][enable]" value="yes" id="enablerenren" <?php checked( ( 'yes' === $wcss_options['renren']['enable'] ), true ); ?> />
-                                                <?php _e( 'Enable Renren', 'wcss-social-share' ); ?>
-                                            </label>
-                                            <div class="color-select">
-                                                <label for="renrencolor">
-                                                    <input type="text" name="wcss_social_sharing[renren][color]" id="renrencolor" class="color-field" value="<?php echo ( isset( $wcss_options['renren']['color'] ) && !empty( $wcss_options['renren']['color'] ) ) ? esc_attr( $wcss_options['renren']['color'] ) : '#005fb1'; ?>" />
-                                                    <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End of Renren button setting -->
 
                                     <!-- Skype button setting -->
                                     <div class="wcss-share-item item skype">
@@ -496,42 +460,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                     </div>
                                     <!--End of Tumblr button setting -->
 
-                                    <!-- Viadeo button setting -->
-                                    <div class="wcss-share-item item viadeo">
-
-                                        <div class="slide-section closed" id="viadeo-slide">
-                                            <label for="enableviadeo">
-                                                <input type="checkbox" name="wcss_social_sharing[viadeo][enable]" value="yes" id="enableviadeo" <?php checked( ( 'yes' === $wcss_options['viadeo']['enable'] ), true ); ?> />
-                                                <?php _e( 'Enable Viadeo', 'wcss-social-share' ); ?>
-                                            </label>
-                                            <div class="color-select">
-                                                <label for="viadeocolor">
-                                                    <input type="text" name="wcss_social_sharing[viadeo][color]" id="viadeocolor" class="color-field" value="<?php echo ( isset( $wcss_options['viadeo']['color'] ) && !empty( $wcss_options['viadeo']['color'] ) ) ? esc_attr( $wcss_options['viadeo']['color'] ) : '#ff7452'; ?>" />
-                                                    <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End of Viadeo button setting -->
-
-                                    <!-- Viber button setting -->
-                                    <div class="wcss-share-item item viber">
-
-                                        <div class="slide-section closed" id="viber-slide">
-                                            <label for="enableviber">
-                                                <input type="checkbox" name="wcss_social_sharing[viber][enable]" value="yes" id="enableviber" <?php checked( ( 'yes' === $wcss_options['viber']['enable'] ), true ); ?> />
-                                                <?php _e( 'Enable Viber', 'wcss-social-share' ); ?>
-                                            </label>
-                                            <div class="color-select">
-                                                <label for="vibercolor">
-                                                    <input type="text" name="wcss_social_sharing[viber][color]" id="vibercolor" class="color-field" value="<?php echo ( isset( $wcss_options['viber']['color'] ) && !empty( $wcss_options['viber']['color'] ) ) ? esc_attr( $wcss_options['viber']['color'] ) : '#9d62cc'; ?>" />
-                                                    <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End of Viber button setting -->
-
+                                    <?php /* ?>
                                     <!-- VK button setting -->
                                     <div class="wcss-share-item item vk">
 
@@ -549,6 +478,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                         </div>
                                     </div>
                                     <!--End of VK button setting -->
+                                    <?php */ ?>
 
                                     <!-- Whatsapp button setting -->
                                     <div class="wcss-share-item item whatsapp">
@@ -568,24 +498,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                     </div>
                                     <!--End of Whatsapp button setting -->
 
-                                    <!-- Y Combinator button setting -->
-                                    <div class="wcss-share-item item ycombinator">
-
-                                        <div class="slide-section closed" id="ycombinator-slide">
-                                            <label for="enableycombinator">
-                                                <input type="checkbox" name="wcss_social_sharing[ycombinator][enable]" value="yes" id="enableycombinator" <?php checked( ( 'yes' === $wcss_options['ycombinator']['enable'] ), true ); ?> />
-                                                <?php _e( 'Enable Y Combinator', 'wcss-social-share' ); ?>
-                                            </label>
-                                            <div class="color-select">
-                                                <label for="ycombinatorcolor">
-                                                    <input type="text" name="wcss_social_sharing[ycombinator][color]" id="ycombinatorcolor" class="color-field" value="<?php echo ( isset( $wcss_options['ycombinator']['color'] ) && !empty( $wcss_options['ycombinator']['color'] ) ) ? esc_attr( $wcss_options['ycombinator']['color'] ) : '#f26522'; ?>" />
-                                                    <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End of Y Combinator button setting -->
-
                                     <!-- Xing button setting -->
                                     <div class="wcss-share-item item xing">
 
@@ -603,24 +515,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                         </div>
                                     </div>
                                     <!--End of Xing button setting -->
-
-                                    <!-- Yammer button setting -->
-                                    <div class="wcss-share-item item yammer">
-
-                                        <div class="slide-section closed" id="yammer-slide">
-                                            <label for="enableyammer">
-                                                <input type="checkbox" name="wcss_social_sharing[yammer][enable]" value="yes" id="enableyammer" <?php checked( ( 'yes' === $wcss_options['yammer']['enable'] ), true ); ?> />
-                                                <?php _e( 'Enable Yammer', 'wcss-social-share' ); ?>
-                                            </label>
-                                            <div class="color-select">
-                                                <label for="yammercolor">
-                                                    <input type="text" name="wcss_social_sharing[yammer][color]" id="yammercolor" class="color-field" value="<?php echo ( isset( $wcss_options['yammer']['color'] ) && !empty( $wcss_options['yammer']['color'] ) ) ? esc_attr( $wcss_options['yammer']['color'] ) : '#005ee2'; ?>" />
-                                                    <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End of Yammer button setting -->
 
                                 </div>
 
