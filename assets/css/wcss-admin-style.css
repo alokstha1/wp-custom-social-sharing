@@ -11,6 +11,7 @@
 }
 
 .wptg-backend-wrap{
+    box-shadow: 8px 8px 8px 0 rgb(187 187 187 / 20%);
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -99,6 +100,8 @@
 
 :root{
     --base-color: #cc2e72;
+    --light-base-color: #d5538b;
+    --secondary-color: #393738;
 }
 
 
@@ -107,42 +110,47 @@
 .wptg-backend-wrap a,
 .wptg-backend-wrap a:visited,
 .wptg-backend-wrap a:hover,
-.wptg-backend-wrap a:visited:hover,
-.wptg-backend-wrap .tabs-wrap .tab-menu li.ui-tabs-active a{
+.wptg-backend-wrap a:visited:hover{
     color: var(--base-color);
 }
 
 /***** ALL THE BASE BACKGROUND COLOR CSS *****/
 
 .wptg-backend-wrap .wptg-btn,
-.wptg-backend-wrap .tabs-wrap .tab-menu li a,
-.wptg-backend-wrap .wptg-btn.btn2:hover,
-.wptg-backend-wrap .wptg-btn.btn2:visited:hover,
-.wptg-backend-wrap .tabs-wrap .tab-menu li a,
-.checkbox-wrap.custom input[type="checkbox"]:checked+.custom-checkbox:before,
-.checkbox-wrap.custom input[type="checkbox"]:checked+.custom-checkbox:after,
-.radio-wrap.custom input[type="radio"]:checked+.custom-radio:after,
+.checkbox-wrap input[type="checkbox"]:checked+.custom-checkbox:before,
 .wptg-backend-wrap .acc-link{
     background: var(--base-color);
 }
 
+.wptg-backend-wrap .wptg-btn.btn2:hover,
+.wptg-backend-wrap .wptg-btn.btn2:visited:hover,
+.checkbox-wrap input[type="checkbox"]:checked+.custom-checkbox:after,
+.radio-wrap input[type="radio"]:checked+.custom-radio:after{
+    background: var(--light-base-color);
+}
+
+.radio-wrap input[type="radio"]:checked+.custom-radio:before{
+    border-color: var(--light-base-color);
+}
+
+
 /***** ALL THE BASE BORDER COLOR CSS *****/
 
-.wptg-backend-wrap .header-wrap,
+/* .wptg-backend-wrap .header-wrap,
 .wptg-backend-wrap .footer-wrap,
 .wptg-backend-wrap .card-block figure,
 .wptg-backend-wrap .footer-wrap,
-.radio-wrap.custom input[type="radio"]:checked+.custom-radio:before{
+.radio-wrap input[type="radio"]:checked+.custom-radio:before{
     border-color: var(--base-color);
-}
+} */
 
 /***** ALL CHECKBOX & RADIOBOX COLOR CSS *****/
 
-.checkbox-wrap.custom input[type="checkbox"]+.custom-checkbox:before{
+.checkbox-wrap input[type="checkbox"]+.custom-checkbox:before{
     background: #dddddd;
 }
 
-.checkbox-wrap.custom input[type="checkbox"]+.custom-checkbox:after{
+.checkbox-wrap input[type="checkbox"]+.custom-checkbox:after{
     background: #7d7d7d;
 }
 
@@ -203,6 +211,8 @@
  */
 
 .row{
+    display: flex;
+    flex-wrap: wrap;
     margin-left: -15px;
     margin-right: -15px;
 }
@@ -441,6 +451,16 @@
 }
 
 /*--------------------------------------------------------------
+ * ## WPTG PLUGIN VERTICAL & HORIZ. ALIGN CLASSES
+ *--------------------------------------------------------------
+ */
+
+.ver-center{
+    display: flex;
+    align-items: center;
+}
+
+/*--------------------------------------------------------------
  * ## wptg PLUGIN PADDING CLASSES
  *--------------------------------------------------------------
  */
@@ -546,9 +566,10 @@
     display: inline-block;
     font-size: inherit;
     font-weight: 500;
+    line-height: normal;
     height: auto;
     outline: none;
-    padding: 10px 25px;
+    padding: 12px 25px;
     text-shadow: none;
     text-transform: uppercase;
 
@@ -559,19 +580,19 @@
 
 .wptg-backend-wrap .wptg-btn:before{
     height: auto;
-    line-height: 20px;
+    line-height: normal;
     vertical-align: top;
 }
 
 .wptg-backend-wrap .wptg-btn:hover,
 .wptg-backend-wrap .wptg-btn:visited:hover{
-    background: #393738;
+    background: var(--secondary-color);
     color: #ffffff;
 }
 
 .wptg-backend-wrap .wptg-btn.btn2,
 .wptg-backend-wrap .wptg-btn.btn2:visited{
-    background: #393738;
+    background: var(--secondary-color);
 }
 
 /*--------------------------------------------------------------
@@ -579,29 +600,33 @@
  *--------------------------------------------------------------
  */
 
-.wptg-backend-wrap form{
-    margin: 30px 0;
-    max-width: 700px;
+.wptg-backend-wrap form .form-section+.form-section {
+    border-top: 1px solid #f1f1f1;
+    margin-top: 20px;
     overflow: hidden;
+    padding-top: 20px;
 }
 
 .wptg-backend-wrap form .form-group{
-    margin-bottom: 15px;
     overflow: hidden;
 }
 
-.wptg-backend-wrap form label{
+.wptg-backend-wrap form .form-group+.form-group{
+    margin-top: 15px;
+}
+
+.wptg-backend-wrap form .form-label{
+    color: #3c434a;
     display: block;
-    float: left;
+    font-size: 14px;
     font-weight: 500;
-    padding: 10px 0px 6px;
-    width: 30%;
+    padding: 0 0 10px;
+    width: 100%;
 }
 
 .wptg-backend-wrap form .form-control-wrap{
     display: block;
-    float: left;
-    width: 70%;
+    width: 100%;
 }
 
 .wptg-backend-wrap form .form-control{
@@ -611,8 +636,10 @@
     border-radius: 4px;
     color: #444;
     font-size: inherit;
+    line-height: normal;
     margin: 0;
-    padding: 10px;
+    outline: none;
+    padding: 12px 15px;
     width: 100%;
 
     -webkit-transition: all 0.3s ease;
@@ -668,10 +695,6 @@
     padding: 5px 10px;
 }
 
-.wptg-backend-wrap form .wptg-btn{
-    margin-left: 30%;
-}
-
 /*--------------------------------------------------------------
  * ## wptg PLUGIN CHECKBOX-WRAP & RADIO-WRAP
  *--------------------------------------------------------------
@@ -683,24 +706,20 @@
     margin: 10px 5px 10px 0;
 }
 
-.wptg-backend-wrap .radio-wrap+.radio-wrap{
-    margin-left: 15px;
-}
-
-.checkbox-wrap.custom,
-.radio-wrap.custom{
-    display: inline-block;
-    padding: 10px 0 6px;
+.checkbox-wrap,
+.radio-wrap{
+    display: block;
+    margin-bottom: 10px;
     position: relative;
 }
 
-.checkbox-wrap.custom input[type="checkbox"],
-.radio-wrap.custom input[type="radio"]{
+.checkbox-wrap input[type="checkbox"],
+.radio-wrap input[type="radio"]{
     bottom: 0;
     cursor: pointer;
     height: 100%;
     left: 0;
-    margin: 0;
+    margin: 0 !important;
     opacity: 0;
     position: absolute;
     right: 0;
@@ -709,90 +728,94 @@
     z-index: 1;
 }
 
-.checkbox-wrap.custom input[type="checkbox"]+.custom-checkbox,
-.radio-wrap.custom input[type="radio"]+.custom-radio{
+.checkbox-wrap input[type="checkbox"]+.custom-checkbox,
+.radio-wrap input[type="radio"]+.custom-radio{
+    color: #5e5e5e;
     cursor: pointer;
     display: block;
+    font-size: 13px;
+    font-weight: 500;
     min-height: 20px;
     min-width: 50px;
-    padding: 0 0 0 50px;
+    max-width: 90%;
+    padding: 0 0 0 45px;
     position: relative;
 }
 
-.checkbox-wrap.custom input[type="checkbox"]+.custom-checkbox:before{
+.checkbox-wrap input[type="checkbox"]+.custom-checkbox:before{
     border-radius: 100px;
     content: '';
-    height: 12px;
+    height: 10px;
     left: 0;
     position: absolute;
-    top: 4px;
-    width: 40px;
+    top: calc(50% - 5px);
+    width: 30px;
 
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
-.checkbox-wrap.custom input[type="checkbox"]+.custom-checkbox:after{
+.checkbox-wrap input[type="checkbox"]+.custom-checkbox:after{
     border-radius: 100%;
     content: '';
-    height: 20px;
+    height: 16px;
     left: 0;
     position: absolute;
-    top: 0;
-    width: 20px;
+    top: calc(50% - 8px);
+    width: 16px;
 
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
-.checkbox-wrap.custom input[type="checkbox"]:checked+.custom-checkbox:before{
-    opacity: 0.3;
+.checkbox-wrap input[type="checkbox"]:checked+.custom-checkbox:before{
+    opacity: 0.2;
 }
 
-.checkbox-wrap.custom input[type="checkbox"]:checked+.custom-checkbox:after{
+.checkbox-wrap input[type="checkbox"]:checked+.custom-checkbox:after{
     -webkit-transform: translateX(100%);
     -ms-transform: translateX(100%);
     -o-transform: translateX(100%);
     transform: translateX(100%);
 }
 
-.radio-wrap.custom input[type="radio"]+.custom-radio{
-    padding-left: 30px;
+.radio-wrap input[type="radio"]+.custom-radio{
+    padding-left: 25px;
 }
 
-.radio-wrap.custom input[type="radio"]+.custom-radio:before{
+.radio-wrap input[type="radio"]+.custom-radio:before{
     border: 2px solid #7d7d7d;
     border-radius: 100px;
     content: '';
-    height: 20px;
+    height: 16px;
     left: 0;
     position: absolute;
-    top: 0;
-    width: 20px;
+    top: calc(50% - 8px);
+    width: 16px;
 
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
-.radio-wrap.custom input[type="radio"]+.custom-radio:after{
+.radio-wrap input[type="radio"]+.custom-radio:after{
     border-radius: 100%;
     content: '';
-    height: 10px;
-    left: 5px;
+    height: 8px;
+    left: 4px;
     opacity: 0;
     position: absolute;
-    top: 5px;
-    width: 10px;
+    top: calc(50% - 4px);
+    width: 8px;
 
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
-.radio-wrap.custom input[type="radio"]:checked+.custom-radio:after{
+.radio-wrap input[type="radio"]:checked+.custom-radio:after{
     opacity: 1;
 }
 
@@ -804,12 +827,12 @@
 
 .wptg-backend-wrap .header-wrap,
 .wptg-backend-wrap .footer-wrap{
-    background: #ffffff;
-    border-top-width: 5px;
-    border-top-style: solid;
-    border-radius: 4px;
+    background: var(--base-color);
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     overflow: hidden;
-    padding: 20px 15px;
+    padding: 20px 30px;
     position: relative;
 
     -webkit-box-shadow: 8px 8px 8px 0 rgba(187, 187, 187, 0.2);
@@ -832,15 +855,20 @@
     display: inline-block;
 }
 
-.wptg-backend-wrap .header-wrap h1{
-    font-size: 24px;
+.wptg-backend-wrap .header-wrap .title h1{
+    color: #ffffff;
+    font-size: 22px;
     font-weight: 500;
     margin-bottom: 5px;
     padding: 0;
 }
 
-.wptg-backend-wrap .header-wrap .addbanner-wrap{
-    text-align: center;
+.wptg-backend-wrap .header-wrap .title .version{
+    color: #cccccc;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 10px;
 }
 
 .wptg-backend-wrap .header-wrap .btn-wrap{
@@ -854,102 +882,98 @@
 /********************************************************************************************************/
 
 /*-------------------------*\
-    #wptg PLUGIN BODY-WRAP
+    #WPTG PLUGIN BODY-WRAP
 \*-------------------------*/
 
 /*--------------------------------------------------------------
- * ## wptg PLUGIN TABS-WRAP
+ * ## WPTG PLUGIN TABS-WRAP
  *--------------------------------------------------------------
  */
 
 .wptg-backend-wrap .body-wrap{
-    margin: 20px 0;
+    margin: 0;
 }
 
 .wptg-backend-wrap .tabs-wrap{
     background: transparent;
     border: none !important;
-    margin: 0 0 20px;
+    display: flex;
+    margin: 0;
     min-height: 300px;
     padding: 0;
     position: relative;
+    width: 100%;
 }
 
-.wptg-backend-wrap .tabs-wrap .tab-menu{
-    background: transparent;
+.wptg-backend-wrap .tabs-wrap .tab-left{
+    background: var(--secondary-color);
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    width: 22%;
+}
+
+.addbanner-wrap {
+    padding: 20px;
+    text-align: center;
+}
+
+.wptg-backend-wrap .tabs-wrap .tab-right{
+    background: #ffffff;
+    border-radius: 0;
+    min-height: 300px;
+    padding: 20px 30px 30px;  
+    width: 78%;
+}
+
+.wptg-backend-wrap .tabs-wrap .tab-menu{
+    margin: 0;
+    padding: 0;
 }
 
 .wptg-backend-wrap .tabs-wrap .tab-menu li{
     background: none;
     border: none;
-    float: left;
-    margin: 0 5px 0 0;
+    float: none;
+    margin: 0;
     padding: 0;
 
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
-
-    -moz-transform: translateY(8px);
-    -ms-transform: translateY(8px);
-    -o-transform: translateY(8px);
-    transform: translateY(8px);
-}
-
-/*.wptg-backend-wrap .tabs-wrap .tab-menu li.ui-tabs-active{
-    -webkit-box-shadow: 8px 8px 0 0 rgba(187, 187, 187, 0.5);
-    -moz-box-shadow: 8px 8px 0 0 rgba(187, 187, 187, 0.5);
-    box-shadow: 8px 8px 0 0 rgba(187, 187, 187, 0.5);
-}*/
-
-.wptg-backend-wrap .tabs-wrap .tab-menu li.ui-tabs-active,
-.wptg-backend-wrap .tabs-wrap .tab-menu li:hover{
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
 }
 
 .wptg-backend-wrap .tabs-wrap .tab-menu li a {
-    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     box-shadow: none;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-radius: 0;
     color: #ffffff;
     display: block;
     float: none;
     margin: 0;
-    padding: 12px 30px 14px 25px;
+    padding: 12px 30px;
     text-decoration: none;
 }
 
-.wptg-backend-wrap .tabs-wrap .tab-menu li.ui-tabs-active a{
-    background: #ffffff;
-}
-
-.wptg-backend-wrap .tabs-wrap .tab-content{
-    background: #ffffff;
-    border-top-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    min-height: 300px;
-    padding: 30px;
-
-    -webkit-box-shadow: 8px 8px 8px 0 rgba(187, 187, 187, 0.2);
-    -moz-box-shadow: 8px 8px 8px 0 rgba(187, 187, 187, 0.2);
-    box-shadow: 8px 8px 8px 0 rgba(187, 187, 187, 0.2);
+.wptg-backend-wrap .tabs-wrap .tab-menu li > a:hover,
+.wptg-backend-wrap .tabs-wrap .tab-menu li.ui-tabs-active > a{
+    background: rgba(0,0,0,0.3);
 }
 
 .wptg-backend-wrap .tabs-wrap .tab-title{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    background: #f1f1f1;
+    font-size: 22px;
+    margin: -20px -30px 20px;
+    padding: 20px 30px;
     position: relative;
 }
 
-.wptg-backend-wrap .tabs-wrap .tab-title:before {
+/* .wptg-backend-wrap .tabs-wrap .tab-title:before {
     font-family: 'dashicons';
     font-size: 23px;
     margin-right: 10px;
@@ -969,7 +993,7 @@
 
 .wptg-backend-wrap .tabs-wrap #extra .tab-title:before{
     content: "\f107";
-}
+} */
 
 .wptg-backend-wrap .tabs-wrap .tab-content > form:first-child{
     margin: 0 0 30px;
@@ -977,6 +1001,29 @@
 
 .wptg-backend-wrap .tabs-wrap .tab-content .ui-tabs-panel{
     padding: 0;
+}
+
+.wptg-backend-wrap .tabs-wrap .tab-content > .wptg-btn{
+    margin-top: 30px;
+}
+
+.wptg-backend-wrap .tabs-wrap .tab-menu .sub-tabmenu{
+    display: none;
+    overflow: hidden;
+}
+
+.wptg-backend-wrap .tabs-wrap .ui-tabs-active ul.sub-tabmenu {
+    display: block;
+}
+
+.wptg-backend-wrap .tabs-wrap .tab-menu .sub-tabmenu li a {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px 30px 10px 55px;
+}
+
+.wptg-backend-wrap .tabs-wrap .tab-menu li.ui-tabs-active .sub-tabmenu a {
+    background: rgba(0,0,0,0.2);
 }
 
 /*--------------------------------------------------------------
@@ -1209,11 +1256,16 @@
 \*---------------------------*/
 
 .wptg-backend-wrap .footer-wrap{
-    border-top: none;
-    border-bottom-width: 5px;
-    border-bottom-style: solid;
+    border-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 500;
+}
+
+.wptg-backend-wrap .footer-wrap a{
+    color: #ffffff;
 }
 
 .wptg-backend-wrap .footer-wrap span{
@@ -1262,11 +1314,6 @@
  */
 
 @media ( max-width: 991px){
-
-    .wptg-backend-wrap .header-wrap .addbanner-wrap{
-        margin: 20px 0;
-        text-align: left;
-    }
 
     .wptg-backend-wrap .header-wrap .btn-wrap,
     .wptg-backend-wrap .footer-nav,
@@ -1328,7 +1375,7 @@
         padding: 20px;
     }
 
-    .wptg-backend-wrap form label,
+    .wptg-backend-wrap form .form-label,
     .wptg-backend-wrap form .form-control-wrap{
         float: none;
         width: 100%;
@@ -1344,41 +1391,225 @@
 
 }
 
+/********************************************************************************************************/
 
-
-
-/***********Admin Icons Styles*************/
-.mr10{
-    margin-right: 10px;
-}
+/*--------------------------------------------------------------
+ * ## WCSS SOCIAL SHARING
+ *--------------------------------------------------------------
+*/
 
 .wcss-button-container{
     position: relative;
 }
 
-.wcss-button-container .icon-button{
-    margin-right: 7px; 
-}
-.wcss-button-container .icon-button .fa{
-    margin-right: 5px;
-}
-
 .wcss-share-item .color-select{
+    display: none;
     margin-top: 12px;
 }
 
-.slide-section.closed {
-    display: none;
-    opacity: 0;
+.wcss-share-btn {
+    color: #ffffff;
+    display: block;
+    padding-right: 20px;
 }
-.slide-section {
-    padding: 20px 0 0;  
-    -o-transition: opacity 3s;
-    -moz-transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    transition: opacity 3s;
-    opacity: 1;
 
-    border-top: 1px solid #e2e2e2;
-    margin-top: 20px;
+.checkbox-wrap input[type="checkbox"]+.custom-checkbox .wcss-share-btn{
+    opacity: 0.5;
+}
+
+.checkbox-wrap input[type="checkbox"]:checked+.custom-checkbox .wcss-share-btn{
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------
+ * ## SOCIAL SHARE ICONS BACKGROUND
+ *--------------------------------------------------------------
+*/
+
+.wcss-facebook .wcss-share-btn{
+    background: #3b5998;
+}
+
+.wcss-twitter .wcss-share-btn{
+    background: #4da7de;
+}
+
+.wcss-pinterest .wcss-share-btn{
+    background: #c92619;
+}
+
+.wcss-email .wcss-share-btn{
+    background: #dd4b39;
+}
+
+.wcss-linkedin .wcss-share-btn{
+    background: #3371b7;
+}
+
+.wcss-blogger .wcss-share-btn{
+    background: #ec661c;
+}
+
+.wcss-buffer .wcss-share-btn{
+    background: #323b43;
+}
+
+.wcss-digg .wcss-share-btn{
+    background: #1d1d1b;
+}
+
+.wcss-flipboard .wcss-share-btn{
+    background: #dd3c3c;
+}
+
+.wcss-odnoklassniki .wcss-share-btn{
+    background: #c97430;
+}
+
+.wcss-pocket .wcss-share-btn{
+    background: #c54656;
+}
+
+.wcss-reddit .wcss-share-btn{
+    background: #e74a1e;
+}
+
+.wcss-skype .wcss-share-btn{
+    background: #269ecb;
+}
+
+.wcss-stumbleupon .wcss-share-btn{
+    background: #e64011;
+}
+
+.wcss-telegram .wcss-share-btn{
+    background: #156e9b;
+}
+
+.wcss-tumblr .wcss-share-btn{
+    background: #45556c;
+}
+
+.wcss-whatsapp .wcss-share-btn{
+    background: #31b641;
+}
+
+.wcss-xing .wcss-share-btn{
+    background: #198c8f;
+}
+
+/*--------------------------------------------------------------
+ * ## SOCIAL SHARE ICONS
+ *--------------------------------------------------------------
+*/
+
+[class^="wcss-icon-"] {
+    color: #ffffff;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: center;
+    width: 30px;
+}
+
+.wcss-icon-facebook {
+    background: #2f4574;
+}
+
+.wcss-icon-twitter {
+    background: #2791d1;
+}
+
+.wcss-icon-pinterest {
+    background: #9c1d13;
+}
+
+.wcss-icon-googleplus {
+    background: #c23321;
+}
+
+.wcss-icon-linkedin {
+    background: #28588f;
+}
+
+.wcss-icon-blogger{
+    background: #c55110;
+}
+
+.wcss-icon-buffer{
+    background: #1c2126;
+}
+
+.wcss-icon-digg{
+    background: #030302;
+}
+
+.wcss-icon-gmail{
+    background: #c23321;
+}
+
+.wcss-icon-flipboard{
+    background: #e12828;
+}
+
+.wcss-icon-odnoklassniki{
+    background: #ed812b;
+}
+
+.wcss-icon-pocket{
+    background: #ef4056;
+}
+
+.wcss-icon-reddit{
+    background: #ff4500;
+}
+
+.wcss-icon-skype{
+    background: #00aff0;
+}
+
+.wcss-icon-stumbleupon{
+    background: #b7330d;
+}
+
+.wcss-icon-telegram{
+    background: #0088cc;
+}
+
+.wcss-icon-tumblr{
+    background: #313d4d;
+}
+
+.wcss-icon-whatsapp{
+    background: #43d854;
+}
+
+.wcss-icon-xing{
+    background: #026466;
+}
+
+/*--------------------------------------------------------------
+ * ## SOCIAL ICONS REORDER
+ *--------------------------------------------------------------
+*/
+
+.wcss-order-icon.ui-sortable{
+    margin: 0 0 0 -10px !important;
+}
+
+.wcss-order-icon.ui-sortable li{
+    padding-left: 10px;
+}
+
+.wcss-order-icon.ui-sortable .wcss-share-btn {
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    color: #ffffff;
+}
+
+.wcss-order-icon.ui-sortable li{
+    display: inline-block;
+    list-style-type: none;
 }

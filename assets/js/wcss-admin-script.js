@@ -1,5 +1,7 @@
 (function( $ ) {
 
+	jQuery('#tabs-wrap').tabs();
+
 	var $body = $('body'),
 		$colorInput = $('input.color-field'),
 		$orderIcon = $('#wcss-order-icon');

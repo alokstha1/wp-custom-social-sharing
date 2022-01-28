@@ -82,10 +82,12 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
             wp_enqueue_style( 'wp-color-picker' );
             wp_enqueue_style( 'wcss-admin-fontawesome', WCSS_PLUGIN_URL . 'assets/css/all.min.css' );
 
-            wp_enqueue_style( 'wcss-admin-style', WCSS_PLUGIN_URL .'assets/css/wcss-admin-style.css' );
+            wp_enqueue_style( 'wcss-admin-style', WCSS_PLUGIN_URL .'assets/css/wcss-admin-style.css', '', time() );
             wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap' );
 
             wp_enqueue_script( 'jquery-ui-sortable' );
+            wp_enqueue_script('jquery','https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
+	        wp_enqueue_script('jquery-ui','http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js');
             wp_enqueue_script( 'wcss-admin-script', WCSS_PLUGIN_URL . 'assets/js/wcss-admin-script.js', array( 'wp-color-picker' ), false, true );
         }
 
