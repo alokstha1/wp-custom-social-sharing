@@ -7,7 +7,7 @@
 		$body.addClass('wcc-ondesktop');
 	}
 
-	$('.wcss-all-network-link').click(function (e) {
+	$('.wcss-all-network-link').on('click', function (e) {
 		e.preventDefault();
 		$('body').toggleClass('wcss-popup-enable');
 	});
