@@ -12,20 +12,13 @@
 		$('body').toggleClass('wcss-popup-enable');
 	});
 
-	jQuery(document).on('click', function (e) {
+	jQuery(document, '.wcss-close-btn').on('click', function (e) {
 		var container = jQuery(".wcss-all-networks-container .wcss-popup-wrapper");
 		var wcssLink = jQuery(".wcss-all-network-link");
 		if (!container.is(e.target) && !wcssLink.is(e.target) && container.has(e.target).length === 0){
 			jQuery('body').removeClass('wcss-popup-enable');
 		}
 	});
-
-	jQuery('.wcss-close-btn').on('click', function (e) {
-		e.preventDefault();
-		jQuery('body').removeClass('wcss-popup-enable');
-	});
-
-	
 
 })( jQuery );
 

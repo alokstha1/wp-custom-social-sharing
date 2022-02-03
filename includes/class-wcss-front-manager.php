@@ -57,7 +57,7 @@ class Wcss_front_manager {
 
 		$this->wcss_dequeue_other_fontawesome();//dequeue font-awesome if exists.
 		wp_enqueue_style( 'wcss-font-awesome', WCSS_PLUGIN_URL.'assets/css/all.min.css' );
-		wp_enqueue_style( 'wcss-front-end-style', WCSS_PLUGIN_URL.'assets/css/wcss-front-end-style.css' );
+		wp_enqueue_style( 'wcss-front-end-style', WCSS_PLUGIN_URL.'assets/css/wcss-front-end-style.css', '', time() );
 		wp_enqueue_script( 'wcss-front-script', WCSS_PLUGIN_URL.'assets/js/wcss-front-end.js', array('jquery'), false, true );
 	}
 
@@ -242,7 +242,7 @@ class Wcss_front_manager {
 		if ( $default_count < count($enabled_icons) ) {
 
 			$return_content .=  sprintf(
-				__( '<li class="wcss-all-networks" ><a href="#" class="wcss-all-network-link" title="%s"><i class="wcss-icon wcss-icon fas fa-ellipsis-h"></i> </a></li>', 'wcss-social-share' ),
+				__( '<li class="wcss-all-networks" ><a href="#" class="wcss-all-network-link" title="%s"></a></li>', 'wcss-social-share' ),
 				__( 'All Networks', 'wcss-social-share')
 				);
 
