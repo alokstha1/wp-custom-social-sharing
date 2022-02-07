@@ -48,9 +48,9 @@
 		idSplit			= checkboxId.split('enable'),
 		iconName		= idSplit[1];
 		if( $(this).is(':checked') ) {
-			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).removeClass('hide-icon').addClass('show-icon');
+			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).removeClass('hide-icon');
 		} else {
-			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).removeClass('show-icon').addClass('hide-icon');
+			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).addClass('hide-icon');
 		}
 
 	});
