@@ -207,6 +207,7 @@ class Wcss_front_manager {
 		$wcss_options 			= $wcss_settings_options['wcss_social_sharing'];
 		$default_count			= $wcss_options['default_count'];
 		$enabled_icons			= $wcss_options['enabled_icons'];
+		$icon_count				= 1;
 		
 
 		if ( is_archive() || is_home() ||( is_front_page() && is_home() ) ) {
@@ -229,14 +230,15 @@ class Wcss_front_manager {
 		$return_content = '<div class="social-sharing wcss-social-sharing '.esc_attr( $icon_position ).' wcss-icon-enabled">';
 		$return_content .= sprintf(  __( '<h3 class="wcss-title share-button-title">%s</h3>', 'wcss-social-share' ), $before_button_text );
 		$return_content .= '<ul>';
-
-
-
+		
 		foreach ( $exploded_order as $key => $icon_value ) {
-			if ( $key < $default_count ) {
-				$return_content .= $this->wcss_render_button( $wcss_options, $icon_value, $get_permalink, $button_size, $post, $post_title );
+			if( 'yes' === $wcss_options[$icon_value]['enable'] ) {
+				if ( $icon_count <= $default_count ) {
+					$return_content .= $this->wcss_render_button( $wcss_options, $icon_value, $get_permalink, $button_size, $post, $post_title );
+					++$icon_count;
+				}
 			}
-
+			
 		}
 
 		if ( $default_count < count($enabled_icons) ) {
