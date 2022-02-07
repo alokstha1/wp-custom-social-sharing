@@ -21,6 +21,7 @@
 	});
 
 	$('.wcss-close-btn').on('click', function (e) {
+		e.preventDefault();
 		jQuery('body').removeClass('wcss-popup-enable');
 	});
 

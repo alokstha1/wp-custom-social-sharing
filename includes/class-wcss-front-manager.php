@@ -112,7 +112,7 @@ class Wcss_front_manager {
 
 		$return_content = $content;
 
-		if (is_single() || is_page() ) {
+		if ( is_single() || is_page() ) {
 
 			if ( in_array( $post->post_type, $wcss_options['post_type'] ) ) {
 
@@ -207,6 +207,7 @@ class Wcss_front_manager {
 		$wcss_options 			= $wcss_settings_options['wcss_social_sharing'];
 		$default_count			= $wcss_options['default_count'];
 		$enabled_icons			= $wcss_options['enabled_icons'];
+		$icon_count				= 1;
 		
 
 		if ( is_archive() || is_home() ||( is_front_page() && is_home() ) ) {
@@ -229,20 +230,22 @@ class Wcss_front_manager {
 		$return_content = '<div class="social-sharing wcss-social-sharing '.esc_attr( $icon_position ).' wcss-icon-enabled">';
 		$return_content .= sprintf(  __( '<h3 class="wcss-title share-button-title">%s</h3>', 'wcss-social-share' ), $before_button_text );
 		$return_content .= '<ul>';
-
-
-
+		
 		foreach ( $exploded_order as $key => $icon_value ) {
-			if ( $key < $default_count ) {
-				$return_content .= $this->wcss_render_button( $wcss_options, $icon_value, $get_permalink, $button_size, $post, $post_title );
+			if( 'yes' === $wcss_options[$icon_value]['enable'] ) {
+				if ( $icon_count <= $default_count ) {
+					$return_content .= $this->wcss_render_button( $wcss_options, $icon_value, $get_permalink, $button_size, $post, $post_title );
+					++$icon_count;
+				}
 			}
-
+			
 		}
 
 		if ( $default_count < count($enabled_icons) ) {
 
 			$return_content .=  sprintf(
-				__( '<li class="wcss-all-networks" ><a href="#" class="wcss-all-network-link" title="%s"></a></li>', 'wcss-social-share' ),
+				__( '<li class="wcss-all-networks" ><a href="#" class="wcss-all-network-link %s" title="%s"></a></li>', 'wcss-social-share' ),
+				'wcss-'. $button_size,
 				__( 'All Networks', 'wcss-social-share')
 				);
 
@@ -547,64 +550,17 @@ class Wcss_front_manager {
 	public function wcss_display_custom_color() {
 		$wcss_settings_options = get_option('wcss_settings_options');
 		$wcss_options = $wcss_settings_options['wcss_social_sharing'];
-		?>
-		<style type="text/css">
-			.wcss-facebook a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['facebook']['color'] ); ?>;
-			}
-			.wcss-twitter a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['twitter']['color'] ); ?>;
-			}
-			.wcss-pinterest a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['pinterest']['color'] ); ?>;
-			}
-			.wcss-linkedin a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['linkedin']['color'] ); ?>;
-			}
-			.wcss-blogger a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['blogger']['color'] ); ?>;
-			}
-			.wcss-buffer a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['buffer']['color'] ); ?>;
-			}
-			.wcss-digg a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['digg']['color'] ); ?>;
-			}
-			.wcss-email a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['email']['color'] ); ?>;
-			}
-			.wcss-flipboard a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['flipboard']['color'] ); ?>;
-			}
-			.wcss-odnoklassniki a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['odnoklassniki']['color'] ); ?>;
-			}
-			.wcss-pocket a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['pocket']['color'] ); ?>;
-			}
-			.wcss-reddit a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['reddit']['color'] ); ?>;
-			}
-			.wcss-skype a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['skype']['color'] ); ?>;
-			}
-			.wcss-stumbleupon a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['stumbleupon']['color'] ); ?>;
-			}
-			.wcss-telegram a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['telegram']['color'] ); ?>;
-			}
-			.wcss-tumblr a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['tumblr']['color'] ); ?>;
-			}
-			.wcss-whatsapp a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['whatsapp']['color'] ); ?>;
-			}
-			.wcss-xing a.wcss-share-btn > span[class^="wcss-icon-"]{
-				background: <?php echo esc_attr( $wcss_options['xing']['color'] ); ?>;
-			}
-		</style>
-		<?php
+
+		if( isset($wcss_options['border_radius'] ) && !empty( $wcss_options['border_radius'] ) ) {
+
+			?>
+			<style type="text/css">
+				.wcss-below-title.wcss-social-sharing .wcss-share-btn {
+					border-radius: <?php echo $wcss_options['border_radius']; ?>px;
+				}
+			</style>
+			<?php
+		}
 	}
 
 	/**
