@@ -10,9 +10,8 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
     <div class="header-wrap">
         <div class="row">
             <div class="logo-wrap col-md-6 ver-center">
-                <div class="title">
-                    <h1><?php _e( 'WP Custom Social Sharing', 'wcss-social-share' ); ?><span class="version">1.0.1.1</span></h1>                    
-                </div>
+                    <img class="logo" src="<?php echo plugin_dir_url( __DIR__ ).'assets/images/logov2.png'; ?>" alt="logo">
+                    <h1 class="title"><?php _e( 'WP Custom Social Sharing', 'wcss-social-share' ); ?><span class="version">1.0.1.1</span></h1>
             </div>
 
 
