@@ -555,7 +555,7 @@ class Wcss_front_manager {
 
 			?>
 			<style type="text/css">
-				.wcss-below-title.wcss-social-sharing .wcss-share-btn {
+				.wcss-below-title.wcss-social-sharing .wcss-share-btn, .wcss-after-content.wcss-social-sharing .wcss-share-btn {
 					border-radius: <?php echo $wcss_options['border_radius']; ?>px;
 				}
 			</style>
