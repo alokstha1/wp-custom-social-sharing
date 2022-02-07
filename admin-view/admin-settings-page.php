@@ -4,9 +4,6 @@ if ( !defined( 'ABSPATH' ) ) exit;
 $wcss_settings_options = get_option('wcss_settings_options');
 $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
-// echo "<pre>";
-// print_r($wcss_options);
-// echo "</pre>";
 ?>
 
 <div class="wptg-backend-wrap">
@@ -75,7 +72,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="facebook-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[facebook][enable]" value="yes" id="enablefacebook" <?php checked( ( 'yes' === $wcss_options['facebook']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[facebook][enable]" value="yes" id="enablefacebook" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['facebook']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enablefacebook" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -84,12 +81,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Facebook', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="facebookcolor">
-                                                                <input type="text" name="wcss_social_sharing[facebook][color]" id="facebookcolor" class="color-field" value="<?php echo ( isset( $wcss_options['facebook']['color'] ) && !empty( $wcss_options['facebook']['color'] ) ) ? esc_attr( $wcss_options['facebook']['color'] ) : '#3b5998'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -101,7 +92,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="twitter-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[twitter][enable]" value="yes" id="enabletwitter" <?php checked( ( 'yes' === $wcss_options['twitter']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[twitter][enable]" value="yes" id="enabletwitter" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['twitter']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enabletwitter" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -110,12 +101,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Twitter', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="twittercolor">
-                                                                <input type="text" name="wcss_social_sharing[twitter][color]" id="twittercolor" class="color-field" value="<?php echo ( isset( $wcss_options['twitter']['color'] ) && !empty( $wcss_options['twitter']['color'] ) ) ? esc_attr( $wcss_options['twitter']['color'] ) : '#00acee'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -127,7 +112,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="pinterest-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[pinterest][enable]" value="yes" id="enablepinterest" <?php checked( ( 'yes' === $wcss_options['pinterest']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[pinterest][enable]" value="yes" id="enablepinterest" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['pinterest']['enable'] ), true ); ?> />
                                                             
                                                             <label for="enablepinterest" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -136,12 +121,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Pinterest', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="pinterestcolor">
-                                                                <input type="text" name="wcss_social_sharing[pinterest][color]" id="pinterestcolor" class="color-field" value="<?php echo ( isset( $wcss_options['pinterest']['color'] ) && !empty( $wcss_options['pinterest']['color'] ) ) ? esc_attr( $wcss_options['pinterest']['color'] ) : '#C92228'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -153,7 +132,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="linkedin-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[linkedin][enable]" value="yes" id="enablelinkedin" <?php checked( ( 'yes' === $wcss_options['linkedin']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[linkedin][enable]" value="yes" id="enablelinkedin" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['linkedin']['enable'] ), true ); ?> />
                                                     
                                                             <label for="enablelinkedin" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -162,12 +141,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'LinkedIn', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="linkedincolor">
-                                                                <input type="text" name="wcss_social_sharing[linkedin][color]" id="linkedincolor" class="color-field" value="<?php echo ( isset( $wcss_options['linkedin']['color'] ) && !empty( $wcss_options['linkedin']['color'] ) ) ? esc_attr( $wcss_options['linkedin']['color'] ) : '#0077b5'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -179,7 +152,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="blogger-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[blogger][enable]" value="yes" id="enableblogger" <?php checked( ( 'yes' === $wcss_options['blogger']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[blogger][enable]" value="yes" id="enableblogger" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['blogger']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enableblogger" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -188,12 +161,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Blogger', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="bloggercolor">
-                                                                <input type="text" name="wcss_social_sharing[blogger][color]" id="bloggercolor" class="color-field" value="<?php echo ( isset( $wcss_options['blogger']['color'] ) && !empty( $wcss_options['blogger']['color'] ) ) ? esc_attr( $wcss_options['blogger']['color'] ) : '#ff8b13'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -205,7 +172,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="buffer-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[buffer][enable]" value="yes" id="enablebuffer" <?php checked( ( 'yes' === $wcss_options['buffer']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[buffer][enable]" value="yes" id="enablebuffer" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['buffer']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enablebuffer" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -214,12 +181,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Buffer', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="buffercolor">
-                                                                <input type="text" name="wcss_social_sharing[buffer][color]" id="buffercolor" class="color-field" value="<?php echo ( isset( $wcss_options['buffer']['color'] ) && !empty( $wcss_options['buffer']['color'] ) ) ? esc_attr( $wcss_options['buffer']['color'] ) : '#3e3e3e'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -231,7 +192,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="digg-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[digg][enable]" value="yes" id="enabledigg" <?php checked( ( 'yes' === $wcss_options['digg']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[digg][enable]" value="yes" id="enabledigg" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['digg']['enable'] ), true ); ?> />
                                                             
                                                             <label for="enabledigg" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -240,12 +201,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Digg', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="diggcolor">
-                                                                <input type="text" name="wcss_social_sharing[digg][color]" id="diggcolor" class="color-field" value="<?php echo ( isset( $wcss_options['digg']['color'] ) && !empty( $wcss_options['digg']['color'] ) ) ? esc_attr( $wcss_options['digg']['color'] ) : '#3e3e3e'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -257,7 +212,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="email-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[email][enable]" value="yes" id="enableemail" <?php checked( ( 'yes' === $wcss_options['email']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[email][enable]" value="yes" id="enableemail" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['email']['enable'] ), true ); ?> />
                                                             
                                                             <label for="enableemail" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -266,12 +221,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Gmail', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="emailcolor">
-                                                                <input type="text" name="wcss_social_sharing[email][color]" id="emailcolor" class="color-field" value="<?php echo ( isset( $wcss_options['email']['color'] ) && !empty( $wcss_options['email']['color'] ) ) ? esc_attr( $wcss_options['email']['color'] ) : '#f4cd0b'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -283,7 +232,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="flipboard-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[flipboard][enable]" value="yes" id="enableflipboard" <?php checked( ( 'yes' === $wcss_options['flipboard']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[flipboard][enable]" value="yes" id="enableflipboard" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['flipboard']['enable'] ), true ); ?> />
                                                             
                                                             <label for="enableflipboard" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -292,12 +241,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Flipboard', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="flipboardcolor">
-                                                                <input type="text" name="wcss_social_sharing[flipboard][color]" id="flipboardcolor" class="color-field" value="<?php echo ( isset( $wcss_options['flipboard']['color'] ) && !empty( $wcss_options['flipboard']['color'] ) ) ? esc_attr( $wcss_options['flipboard']['color'] ) : '#f43d3d'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -313,12 +256,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                             <input type="checkbox" name="wcss_social_sharing[myspace][enable]" value="yes" id="enablemyspace" <?php checked( ( 'yes' === $wcss_options['myspace']['enable'] ), true ); ?> />
                                                             <?php _e( 'Enable Myspace', 'wcss-social-share' ); ?>
                                                         </label>
-                                                        <div class="color-select">
-                                                            <label for="myspacecolor">
-                                                                <input type="text" name="wcss_social_sharing[myspace][color]" id="myspacecolor" class="color-field" value="<?php echo ( isset( $wcss_options['myspace']['color'] ) && !empty( $wcss_options['myspace']['color'] ) ) ? esc_attr( $wcss_options['myspace']['color'] ) : '#f43d3d'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                            </label>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--End of myspace button setting -->
@@ -329,7 +266,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="odnoklassniki-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[odnoklassniki][enable]" value="yes" id="enableodnoklassniki" <?php checked( ( 'yes' === $wcss_options['odnoklassniki']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[odnoklassniki][enable]" value="yes" id="enableodnoklassniki" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['odnoklassniki']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enableodnoklassniki" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -338,12 +275,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Odnoklassniki', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="odnoklassnikicolor">
-                                                                <input type="text" name="wcss_social_sharing[odnoklassniki][color]" id="odnoklassnikicolor" class="color-field" value="<?php echo ( isset( $wcss_options['odnoklassniki']['color'] ) && !empty( $wcss_options['odnoklassniki']['color'] ) ) ? esc_attr( $wcss_options['odnoklassniki']['color'] ) : '#ff8321'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -355,7 +286,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="pocket-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[pocket][enable]" value="yes" id="enablepocket" <?php checked( ( 'yes' === $wcss_options['pocket']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[pocket][enable]" value="yes" id="enablepocket" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['pocket']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enablepocket" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -364,12 +295,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Pocket', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="pocketcolor">
-                                                                <input type="text" name="wcss_social_sharing[pocket][color]" id="pocketcolor" class="color-field" value="<?php echo ( isset( $wcss_options['pocket']['color'] ) && !empty( $wcss_options['pocket']['color'] ) ) ? esc_attr( $wcss_options['pocket']['color'] ) : '#ff384b'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -381,7 +306,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="reddit-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[reddit][enable]" value="yes" id="enablereddit" <?php checked( ( 'yes' === $wcss_options['reddit']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[reddit][enable]" value="yes" id="enablereddit" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['reddit']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enablereddit" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -390,12 +315,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Reddit', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="redditcolor">
-                                                                <input type="text" name="wcss_social_sharing[reddit][color]" id="redditcolor" class="color-field" value="<?php echo ( isset( $wcss_options['reddit']['color'] ) && !empty( $wcss_options['reddit']['color'] ) ) ? esc_attr( $wcss_options['reddit']['color'] ) : '#ff4500'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -407,7 +326,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="skype-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[skype][enable]" value="yes" id="enableskype" <?php checked( ( 'yes' === $wcss_options['skype']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[skype][enable]" value="yes" id="enableskype" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['skype']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enable" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -416,12 +335,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Skype', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="skypecolor">
-                                                                <input type="text" name="wcss_social_sharing[skype][color]" id="skypecolor" class="color-field" value="<?php echo ( isset( $wcss_options['skype']['color'] ) && !empty( $wcss_options['skype']['color'] ) ) ? esc_attr( $wcss_options['skype']['color'] ) : '#06bcff'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -433,7 +346,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="stumbleupon-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[stumbleupon][enable]" value="yes" id="enablestumbleupon" <?php checked( ( 'yes' === $wcss_options['stumbleupon']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[stumbleupon][enable]" value="yes" id="enablestumbleupon" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['stumbleupon']['enable'] ), true ); ?> />
                                                                 
                                                             <label for="enablestumbleupon" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -442,13 +355,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Stumbleupon', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                            
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="stumbleuponcolor">
-                                                                <input type="text" name="wcss_social_sharing[stumbleupon][color]" id="stumbleuponcolor" class="color-field" value="<?php echo ( isset( $wcss_options['stumbleupon']['color'] ) && !empty( $wcss_options['stumbleupon']['color'] ) ) ? esc_attr( $wcss_options['stumbleupon']['color'] ) : '#eb4924'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -460,7 +366,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="telegram-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[telegram][enable]" value="yes" id="enabletelegram" <?php checked( ( 'yes' === $wcss_options['telegram']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[telegram][enable]" value="yes" id="enabletelegram" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['telegram']['enable'] ), true ); ?> />
                                                             
                                                             <label for="enabletelegram" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -469,12 +375,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Telegram', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="telegramcolor">
-                                                                <input type="text" name="wcss_social_sharing[telegram][color]" id="telegramcolor" class="color-field" value="<?php echo ( isset( $wcss_options['telegram']['color'] ) && !empty( $wcss_options['telegram']['color'] ) ) ? esc_attr( $wcss_options['telegram']['color'] ) : '#2ca5e0'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -486,7 +386,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="tumblr-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[tumblr][enable]" value="yes" id="enabletumblr" <?php checked( ( 'yes' === $wcss_options['tumblr']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[tumblr][enable]" value="yes" id="enabletumblr" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['tumblr']['enable'] ), true ); ?> />
                                                             
                                                             <label for="enabletumblr" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -495,12 +395,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Tumblr', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="tumblrcolor">
-                                                                <input type="text" name="wcss_social_sharing[tumblr][color]" id="tumblrcolor" class="color-field" value="<?php echo ( isset( $wcss_options['tumblr']['color'] ) && !empty( $wcss_options['tumblr']['color'] ) ) ? esc_attr( $wcss_options['tumblr']['color'] ) : '#3e3e3e'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -516,12 +410,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                             <input type="checkbox" name="wcss_social_sharing[vk][enable]" value="yes" id="enablevk" <?php checked( ( 'yes' === $wcss_options['vk']['enable'] ), true ); ?> />
                                                             <?php _e( 'Enable VK', 'wcss-social-share' ); ?>
                                                         </label>
-                                                        <div class="color-select">
-                                                            <label for="vkcolor">
-                                                                <input type="text" name="wcss_social_sharing[vk][color]" id="vkcolor" class="color-field" value="<?php echo ( isset( $wcss_options['vk']['color'] ) && !empty( $wcss_options['vk']['color'] ) ) ? esc_attr( $wcss_options['vk']['color'] ) : '#3673be'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
-                                                            </label>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!--End of VK button setting -->
@@ -532,7 +420,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="whatsapp-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[whatsapp][enable]" value="yes" id="enablewhatsapp" <?php checked( ( 'yes' === $wcss_options['whatsapp']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[whatsapp][enable]" value="yes" id="enablewhatsapp" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['whatsapp']['enable'] ), true ); ?> />
                                                                                                                         
                                                             <label for="enablewhatsapp" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -541,12 +429,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Whatsapp', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="whatsappcolor">
-                                                                <input type="text" name="wcss_social_sharing[whatsapp][color]" id="whatsappcolor" class="color-field" value="<?php echo ( isset( $wcss_options['whatsapp']['color'] ) && !empty( $wcss_options['whatsapp']['color'] ) ) ? esc_attr( $wcss_options['whatsapp']['color'] ) : '#13d25a'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -558,7 +440,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
                                                     <div class="slide-section closed" id="xing-slide">
                                                         <div class="checkbox-wrap">
-                                                            <input type="checkbox" name="wcss_social_sharing[xing][enable]" value="yes" id="enablexing" <?php checked( ( 'yes' === $wcss_options['xing']['enable'] ), true ); ?> />
+                                                            <input type="checkbox" name="wcss_social_sharing[xing][enable]" value="yes" id="enablexing" class="wcss-icon-checkbox" <?php checked( ( 'yes' === $wcss_options['xing']['enable'] ), true ); ?> />
                                                             
                                                             <label for="enablexing" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
@@ -567,12 +449,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                                     </span>
                                                                     <?php _e( 'Xing', 'wcss-social-share' ); ?>
                                                                 </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="color-select">
-                                                            <label for="xingcolor">
-                                                                <input type="text" name="wcss_social_sharing[xing][color]" id="xingcolor" class="color-field" value="<?php echo ( isset( $wcss_options['xing']['color'] ) && !empty( $wcss_options['xing']['color'] ) ) ? esc_attr( $wcss_options['xing']['color'] ) : '#20a5a5'; ?>" />
-                                                                <p class="description" ><?php _e( 'Select button color.', 'wcss-social-share' ); ?></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -602,102 +478,120 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                 switch( $i ){
 
                                                     case 'facebook':
-                                                    echo sprintf( __('<li class="wcss-facebook">
+                                                    echo sprintf( __('<li class="wcss-facebook %s">
                                                         <a href="#" id="facebook" class="wcss-share-btn" data-show="facebook-slide" >
                                                             <span class="wcss-icon-facebook">
                                                                 <i class="wcss-icon fab fa-facebook-f"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Facebook', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['facebook']['enable'] ) && 'yes' === $wcss_options['facebook']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Facebook', 'wcss-social-share') );
                                                     break;
 
                                                     case 'twitter':
-                                                    echo sprintf( __('<li class="wcss-twitter">
+                                                    echo sprintf( __('<li class="wcss-twitter %s">
                                                         <a href="#" id="twitter" class="wcss-share-btn" data-show="twitter-slide" >
                                                             <span class="wcss-icon-twitter">
                                                                 <i class="fab fa-twitter"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Twitter', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['twitter']['enable'] ) && 'yes' === $wcss_options['twitter']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Twitter', 'wcss-social-share') );
                                                     break;
 
                                                     case 'pinterest':
-                                                    echo sprintf( __('<li class="wcss-pinterest">
+                                                    echo sprintf( __('<li class="wcss-pinterest %s">
                                                         <a href="#" id="pinterest" class="wcss-share-btn" data-show="pinterest-slide" >
                                                             <span class="wcss-icon-pinterest">
                                                                 <i class="fab fa-pinterest"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Pinterest', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['pinterest']['enable'] ) && 'yes' === $wcss_options['pinterest']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Pinterest', 'wcss-social-share') );
                                                     break;
 
                                                     case 'linkedin':
-                                                    echo sprintf( __('<li class="wcss-linkedin">
+                                                    echo sprintf( __('<li class="wcss-linkedin %s">
                                                         <a href="#" id="linkedin" class="wcss-share-btn" data-show="linkedin-slide" >
                                                             <span class="wcss-icon-linkedin">
                                                                 <i class="fab fa-linkedin"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('LinkedIn', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['linkedin']['enable'] ) && 'yes' === $wcss_options['linkedin']['enable'] ) ? '' : 'hide-icon',
+                                                    __('LinkedIn', 'wcss-social-share') );
                                                     break;
 
                                                     case 'blogger':
-                                                    echo sprintf( __('<li class="wcss-blogger">
+                                                    echo sprintf( __('<li class="wcss-blogger %s">
                                                         <a href="#" id="blogger" class="wcss-share-btn" data-show="blogger-slide" >
                                                             <span class="wcss-icon-blogger">
                                                                 <i class="fab fa-blogger"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Blogger', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['blogger']['enable'] ) && 'yes' === $wcss_options['blogger']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Blogger', 'wcss-social-share') );
                                                     break;
 
                                                     case 'buffer':
-                                                    echo sprintf( __('<li class="wcss-buffer">
+                                                    echo sprintf( __('<li class="wcss-buffer %s">
                                                         <a href="#" id="buffer" class="wcss-share-btn" data-show="buffer-slide" >
                                                             <span class="wcss-icon-buffer">
                                                                 <i class="fab fa-buffer"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Buffer', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['buffer']['enable'] ) && 'yes' === $wcss_options['buffer']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Buffer', 'wcss-social-share') );
                                                     break;
 
                                                     case 'digg':
-                                                    echo sprintf( __('<li class="wcss-digg">
+                                                    echo sprintf( __('<li class="wcss-digg %s">
                                                         <a href="#" id="digg" class="wcss-share-btn" data-show="digg-slide" >
                                                             <span class="wcss-icon-digg">
                                                                 <i class="fab fa-digg"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Digg', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['digg']['enable'] ) && 'yes' === $wcss_options['digg']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Digg', 'wcss-social-share') );
                                                     break;
 
                                                     case 'email':
-                                                    echo sprintf( __('<li class="wcss-email">
+                                                    echo sprintf( __('<li class="wcss-email %s">
                                                         <a href="#" id="email" class="wcss-share-btn" data-show="email-slide" >
                                                             <span class="wcss-icon-gmail">
                                                                 <i class="far fa-envelope"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Gmail', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['email']['enable'] ) && 'yes' === $wcss_options['email']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Gmail', 'wcss-social-share') );
                                                     break;
 
                                                     case 'flipboard':
-                                                    echo sprintf( __('<li class="wcss-flipboard">
+                                                    echo sprintf( __('<li class="wcss-flipboard %s">
                                                         <a href="#" id="flipboard" class="wcss-share-btn" data-show="flipboard-slide" >
                                                             <span class="wcss-icon-flipboard">
                                                                 <i class="fab fa-flipboard"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Flipboard', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['flipboard']['enable'] ) && 'yes' === $wcss_options['flipboard']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Flipboard', 'wcss-social-share') );
                                                     break;
 
                                                     // case 'myspace':
@@ -705,80 +599,94 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                     // break;
 
                                                     case 'odnoklassniki':
-                                                    echo sprintf( __('<li class="wcss-odnoklassniki">
+                                                    echo sprintf( __('<li class="wcss-odnoklassniki %s">
                                                         <a href="#" id="odnoklassniki" class="wcss-share-btn" data-show="odnoklassniki-slide" >
                                                             <span class="wcss-icon-odnoklassniki">
                                                                 <i class="fab fa-odnoklassniki"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Odnoklassniki', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['odnoklassniki']['enable'] ) && 'yes' === $wcss_options['odnoklassniki']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Odnoklassniki', 'wcss-social-share') );
                                                     break;
 
                                                     case 'pocket':
-                                                    echo sprintf( __('<li class="wcss-pocket">
+                                                    echo sprintf( __('<li class="wcss-pocket %s">
                                                         <a href="#" id="pocket" class="wcss-share-btn" data-show="pocket-slide" >
                                                             <span class="wcss-icon-pocket">
                                                                 <i class="fab fa-get-pocket"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Pocket', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['pocket']['enable'] ) && 'yes' === $wcss_options['pocket']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Pocket', 'wcss-social-share') );
                                                     break;
 
                                                     case 'reddit':
-                                                    echo sprintf( __('<li class="wcss-reddit">
+                                                    echo sprintf( __('<li class="wcss-reddit %s">
                                                         <a href="#" id="reddit" class="wcss-share-btn" data-show="reddit-slide" >
                                                             <span class="wcss-icon-reddit">
                                                                 <i class="fab fa-reddit"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Reddit', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['reddit']['enable'] ) && 'yes' === $wcss_options['reddit']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Reddit', 'wcss-social-share') );
                                                     break;
 
                                                     case 'skype':
-                                                    echo sprintf( __('<li class="wcss-skype">
+                                                    echo sprintf( __('<li class="wcss-skype %s">
                                                         <a href="#" id="skype" class="wcss-share-btn" data-show="skype-slide" >
                                                             <span class="wcss-icon-skype">
                                                                 <i class="fab fa-skype"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Skype', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['skype']['enable'] ) && 'yes' === $wcss_options['skype']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Skype', 'wcss-social-share') );
                                                     break;
 
                                                     case 'stumbleupon':
-                                                    echo sprintf( __('<li class="wcss-stumbleupon">
+                                                    echo sprintf( __('<li class="wcss-stumbleupon %s">
                                                         <a href="#" id="stumbleupon" class="wcss-share-btn" data-show="stumbleupon-slide" >
                                                             <span class="wcss-icon-stumbleupon">
                                                                 <i class="fab fa-stumbleupon"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('StumbleUpon', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['stumbleupon']['enable'] ) && 'yes' === $wcss_options['stumbleupon']['enable'] ) ? '' : 'hide-icon',
+                                                    __('StumbleUpon', 'wcss-social-share') );
                                                     break;
 
                                                     case 'telegram':
-                                                    echo sprintf( __('<li class="wcss-telegram">
+                                                    echo sprintf( __('<li class="wcss-telegram %s">
                                                         <a href="#" id="telegram" class="wcss-share-btn" data-show="telegram-slide" >
                                                             <span class="wcss-icon-telegram">
                                                                 <i class="fab fa-telegram"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Telegram', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['telegram']['enable'] ) && 'yes' === $wcss_options['telegram']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Telegram', 'wcss-social-share') );
                                                     break;
 
                                                     case 'tumblr':
-                                                    echo sprintf( __('<li class="wcss-tumblr">
+                                                    echo sprintf( __('<li class="wcss-tumblr %s">
                                                         <a href="#" id="tumblr" class="wcss-share-btn" data-show="tumblr-slide" >
                                                             <span class="wcss-icon-tumblr">
                                                                 <i class="fab fa-tumblr"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Tumblr', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['tumblr']['enable'] ) && 'yes' === $wcss_options['tumblr']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Tumblr', 'wcss-social-share') );
                                                     break;
 
                                                     // case 'vk':
@@ -787,25 +695,29 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
 
                                                     case 'whatsapp':
-                                                    echo sprintf( __('<li class="wcss-whatsapp">
+                                                    echo sprintf( __('<li class="wcss-whatsapp %s">
                                                         <a href="#" id="whatsapp" class="wcss-share-btn" data-show="whatsapp-slide" >
                                                             <span class="wcss-icon-whatsapp">
                                                                 <i class="fab fa-whatsapp"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Whatsapp', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['whatsapp']['enable'] ) && 'yes' === $wcss_options['whatsapp']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Whatsapp', 'wcss-social-share') );
                                                     break;
 
                                                     case 'xing':
-                                                    echo sprintf( __('<li class="wcss-xing">
+                                                    echo sprintf( __('<li class="wcss-xing %s">
                                                         <a href="#" id="xing" class="wcss-share-btn" data-show="xing-slide" >
                                                             <span class="wcss-icon-xing">
                                                                 <i class="fab fa-xing"></i>
                                                             </span>
                                                             %s
                                                         </a>
-                                                    </li>'), __('Xing', 'wcss-social-share') );
+                                                    </li>'), 
+                                                    ( !empty( $wcss_options['xing']['enable'] ) && 'yes' === $wcss_options['xing']['enable'] ) ? '' : 'hide-icon',
+                                                    __('Xing', 'wcss-social-share') );
                                                     break;
 
                                                 }
@@ -969,7 +881,21 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                     <input type="text" name="wcss_social_sharing[button_label]" value="<?php echo ( isset( $wcss_options['button_label'] ) && !empty( $wcss_options['button_label'] ) ) ? esc_attr( $wcss_options['button_label'] ) : ''; ?>" id="icon-label" class="form-control"/>
                                 </div>
 
-                            </div>  
+                            </div>
+
+                            <!-- Sectin to change the button border-radius to display in front-->
+                            <div class="form-section">
+
+                                <label for="buttonborderradius" class="form-label">
+                                    <?php _e( 'Button Border Radius', 'wcss-social-share' ); ?>
+                                </label>
+
+                                <div id="buttonborderradius" class="form-control-wrap">
+                                    <input type="number" name="wcss_social_sharing[border_radius]" value="<?php echo ( isset( $wcss_options['border_radius'] ) && !empty( $wcss_options['border_radius'] ) ) ? esc_attr( $wcss_options['border_radius'] ) : 0; ?>" id="icon-border-radius" class="form-control"/>
+                                    <span>px</span>
+                                </div>
+
+                            </div>
                         </div> 
                         <!-- Design Tab Starts -->
                        
