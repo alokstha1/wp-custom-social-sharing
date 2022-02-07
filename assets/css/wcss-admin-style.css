@@ -846,20 +846,16 @@
 
 .wptg-backend-wrap .header-wrap .logo{
     display: inline-block;
-    max-width: 90px;
+    max-width: 60px;
     margin-right: 15px;
     vertical-align: top;
 }
 
 .wptg-backend-wrap .header-wrap .title{
-    display: inline-block;
-}
-
-.wptg-backend-wrap .header-wrap .title h1{
     color: #ffffff;
     font-size: 22px;
     font-weight: 500;
-    margin-bottom: 5px;
+    margin: 0;
     padding: 0;
 }
 
