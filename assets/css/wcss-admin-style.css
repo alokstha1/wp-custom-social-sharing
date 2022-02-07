@@ -638,6 +638,7 @@
     font-size: inherit;
     line-height: normal;
     margin: 0;
+    max-width: 200px;
     outline: none;
     padding: 12px 15px;
     width: 100%;
