@@ -48,11 +48,9 @@
 		idSplit			= checkboxId.split('enable'),
 		iconName		= idSplit[1];
 		if( $(this).is(':checked') ) {
-			console.log(iconName);
 			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).removeClass('hide-icon').addClass('show-icon');
 		} else {
 			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).removeClass('show-icon').addClass('hide-icon');
-			console.log('unchecked');
 		}
 
 	});
