@@ -1598,6 +1598,10 @@
     padding-left: 10px;
 }
 
+.wcss-order-icon.ui-sortable li.hide-icon{
+    display: none;
+}
+
 .wcss-order-icon.ui-sortable .wcss-share-btn {
     appearance: none;
     border: none;
