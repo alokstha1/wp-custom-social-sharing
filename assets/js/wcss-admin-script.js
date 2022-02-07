@@ -30,7 +30,8 @@
 	$orderIcon.sortable({
 		stop:function(event,ui){
 			var new_order='';
-			jQuery('#wcss-order-icon > a').each(function(e,v){
+			
+			jQuery('#wcss-order-icon a').each(function(e,v){
 				new_order += jQuery(v).attr('id')+',';
 			});
 			new_order = new_order.slice(0,new_order.length-1);
