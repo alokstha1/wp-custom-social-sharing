@@ -170,6 +170,8 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
 
             $variables_array['wcss_social_sharing']['button_label'] = ( isset( $posts_variables['button_label'] ) && ! empty( $posts_variables['button_label'] ) ) ? sanitize_text_field( $posts_variables['button_label'] ) : '';
 
+            $variables_array['wcss_social_sharing']['border_radius'] = ( isset( $posts_variables['border_radius'] ) && ! empty( $posts_variables['border_radius'] ) ) ? intval( $posts_variables['border_radius'] ) : 0;
+
             
             return $variables_array;
         }
@@ -258,6 +260,7 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
                     'icon_position' => array(),
                     'button_size'   => 'medium',
                     'button_label'  => 'Share This:',
+                    'border_radius'  => 0,
                     'default_count' => 3,
                     'enabled_icons' => array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'whatsapp', 'xing' )
                 ),
