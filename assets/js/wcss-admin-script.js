@@ -30,7 +30,7 @@
 	$orderIcon.sortable({
 		stop:function(event,ui){
 			var new_order='';
-			
+
 			jQuery('#wcss-order-icon a').each(function(e,v){
 				new_order += jQuery(v).attr('id')+',';
 			});
@@ -39,6 +39,20 @@
 			jQuery('input#wcss-button-order-field').val(new_order);
 
 		}
+	});
+
+	//show or hide icons from the re-order section
+	$(".wcss-icon-checkbox").change(function() {
+
+		var checkboxId 	= $(this).attr('id'),
+		idSplit			= checkboxId.split('enable'),
+		iconName		= idSplit[1];
+		if( $(this).is(':checked') ) {
+			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).removeClass('hide-icon').addClass('show-icon');
+		} else {
+			$('.wcss-order-icon.ui-sortable .wcss-'+iconName).removeClass('show-icon').addClass('hide-icon');
+		}
+
 	});
 
 })( jQuery );
