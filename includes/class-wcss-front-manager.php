@@ -4,19 +4,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
-* Wcss_front_manager class. manage the contents related to front-end
+* Wcss_Front_Manager class. manage the contents related to front-end
 */
-class Wcss_front_manager {
+class Wcss_Front_Manager {
 
 	/**
 	* constructor class
 	*/
 	public function __construct() {
 
-		$wcss_settings_options = get_option('wcss_settings_options');
+		$wcss_settings_options = get_option( 'wcss_settings_options' );
 		$wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
-		if ( is_array( $wcss_options['icon_position'] ) && !empty( $wcss_options['icon_position'] ) ) {
+		if ( is_array( $wcss_options['icon_position'] ) && ! empty( $wcss_options['icon_position'] ) ) {
 
 			foreach ( $wcss_options['icon_position'] as $icon_position ) {
 
@@ -31,7 +31,7 @@ class Wcss_front_manager {
 					add_filter( 'the_content', array( $this, 'wcss_buttons_after_content' ) );
 				}
 
-				if (in_array( 'above_content', $wcss_options['icon_position'] ) ) {
+				if ( in_array( 'above_content', $wcss_options['icon_position'] ) ) {
 
 					add_filter( 'the_content', array( $this, 'wcss_buttons_above_content' ) );
 				}
@@ -43,10 +43,10 @@ class Wcss_front_manager {
 			}
 		}
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'wcss_enqueue_scripts' ) );//enqueue scripts and styles
-		add_shortcode( 'wcss_shortcode', array( $this, 'wcss_button_html_shortcode') );//add shortcode
-		add_action( 'wp_head', array( $this, 'wcss_display_custom_color') );//add action to wp_head
-		add_action( 'wp_footer', array( $this, 'wcss_display_all_networks_popup') );//add action to wp_head
+		add_action( 'wp_enqueue_scripts', array( $this, 'wcss_enqueue_scripts' ) ); // enqueue scripts and styles
+		add_shortcode( 'wcss_shortcode', array( $this, 'wcss_button_html_shortcode') ); // add shortcode
+		add_action( 'wp_head', array( $this, 'wcss_display_custom_color') ); // add action to wp_head
+		add_action( 'wp_footer', array( $this, 'wcss_display_all_networks_popup') ); // add action to wp_head
 
 	}
 
@@ -55,10 +55,10 @@ class Wcss_front_manager {
 	*/
 	public function wcss_enqueue_scripts() {
 
-		$this->wcss_dequeue_other_fontawesome();//dequeue font-awesome if exists.
-		wp_enqueue_style( 'wcss-font-awesome', WCSS_PLUGIN_URL.'assets/css/all.min.css' );
-		wp_enqueue_style( 'wcss-front-end-style', WCSS_PLUGIN_URL.'assets/css/wcss-front-end-style.css', '', time() );
-		wp_enqueue_script( 'wcss-front-script', WCSS_PLUGIN_URL.'assets/js/wcss-front-end.js', array('jquery'), false, true );
+		$this->wcss_dequeue_other_fontawesome(); // dequeue font-awesome if exists.
+		wp_enqueue_style( 'wcss-font-awesome', WCSS_PLUGIN_URL . 'assets/css/all.min.css' );
+		wp_enqueue_style( 'wcss-front-end-style', WCSS_PLUGIN_URL . 'assets/css/wcss-front-end-style.css', '', time() );
+		wp_enqueue_script( 'wcss-front-script', WCSS_PLUGIN_URL . 'assets/js/wcss-front-end.js', array( 'jquery' ), false, true );
 	}
 
 	/**
@@ -68,8 +68,8 @@ class Wcss_front_manager {
 
 		global $wp_styles;
 
-		if ( !empty( $wp_styles->registered ) ) {
-			foreach ($wp_styles->registered as $index => $styles) {
+		if ( ! empty( $wp_styles->registered ) ) {
+			foreach ( $wp_styles->registered as $index => $styles ) {
 				if ( ( strpos( $styles->src, 'font-awesome.min.css' ) !== false ) || ( strpos( $styles->src, 'font-awesome.css' ) !== false ) ) {
 					wp_dequeue_style( $styles->handle );
 					wp_deregister_style( $styles->handle );
@@ -84,7 +84,7 @@ class Wcss_front_manager {
 	public function wcss_buttons_after_content( $content ) {
 
 		global $post;
-		$wcss_settings_options = get_option('wcss_settings_options');
+		$wcss_settings_options = get_option( 'wcss_settings_options' );
 		$wcss_options = $wcss_settings_options['wcss_social_sharing'];
 		$return_content = $content;
 
@@ -92,7 +92,7 @@ class Wcss_front_manager {
 
 			if ( in_array( $post->post_type, $wcss_options['post_type'] ) ) {
 
-				$return_content = $content.$this->wcss_button_html( '', 'wcss-after-content');
+				$return_content = $content . $this->wcss_button_html( '', 'wcss-after-content' );
 			}
 			return $return_content;
 		} else {
@@ -107,7 +107,7 @@ class Wcss_front_manager {
 
 		global $post;
 
-		$wcss_settings_options = get_option('wcss_settings_options');
+		$wcss_settings_options = get_option( 'wcss_settings_options' );
 		$wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
 		$return_content = $content;
@@ -116,7 +116,7 @@ class Wcss_front_manager {
 
 			if ( in_array( $post->post_type, $wcss_options['post_type'] ) ) {
 
-				$return_content = $this->wcss_button_html( '', 'wcss-below-title').$content;
+				$return_content = $this->wcss_button_html( '', 'wcss-below-title' ) . $content;
 
 			}
 			return $return_content;
@@ -133,15 +133,15 @@ class Wcss_front_manager {
 
 		global $post;
 
-		$wcss_settings_options = get_option('wcss_settings_options');
+		$wcss_settings_options = get_option( 'wcss_settings_options' );
 		$wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
 		$return_content = $content;
 
-		if (is_single() || is_page() ) {
+		if ( is_single() || is_page() ) {
 
 			if ( in_array( $post->post_type, $wcss_options['post_type'] ) ) {
-				$return_content = $content.$this->wcss_button_html( '', 'wcss-fixed-content');
+				$return_content = $content.$this->wcss_button_html( '', 'wcss-fixed-content' );
 			}
 			return $return_content;
 		} else {
@@ -156,9 +156,9 @@ class Wcss_front_manager {
 
 		$return_content = '';
 
-		$return_content .= $this->wcss_button_html( '', 'wcss-featured-image');
+		$return_content .= $this->wcss_button_html( '', 'wcss-featured-image' );
 
-		$return = '<div class="wcss-featured-image-wrap">'.$html.$return_content.'</div>';
+		$return = '<div class="wcss-featured-image-wrap">' . $html . $return_content . '</div>';
 
 		return $return;
 	}
@@ -167,12 +167,12 @@ class Wcss_front_manager {
 	* Social sharing shortcode
 	*/
 	public function wcss_button_html_shortcode( $atts ) {
-		$value = shortcode_atts(array(
+		$value = shortcode_atts( array(
 			'above_content'	=> false,
 			'below_content' => false,
-			'float_left' => false,
+			'float_left' 	=> false,
 
-			),$atts);
+		), $atts );
 		if ( $value['above_content'] ) {
 
 			$icon_position = 'wcss-below-title';
@@ -186,11 +186,7 @@ class Wcss_front_manager {
 			$icon_position = 'wcss-fixed-content';
 		}
 
-		
-
 		ob_start();
-
-		
 
 		$return_content = ob_get_clean();
 
@@ -200,7 +196,7 @@ class Wcss_front_manager {
 	/**
 	* Returns Buttons html
 	*/
-	public function wcss_button_html( $title = '', $icon_position = '') 	{
+	public function wcss_button_html( $title = '', $icon_position = '' ) {
 		global $post;
 
 		$wcss_settings_options 	= get_option('wcss_settings_options');
@@ -224,9 +220,6 @@ class Wcss_front_manager {
 		$post_title = urlencode( html_entity_decode( $title ) );
 		$get_permalink = urlencode( apply_filters( 'wcss_filter_permalink', get_permalink( $post->ID ) ) );
 
-		
-
-		// $return_content = '';
 		$return_content = '<div class="social-sharing wcss-social-sharing '.esc_attr( $icon_position ).' wcss-icon-enabled">';
 		$return_content .= sprintf(  __( '<h3 class="wcss-title share-button-title">%s</h3>', 'wcss-social-share' ), $before_button_text );
 		$return_content .= '<ul>';
@@ -250,12 +243,6 @@ class Wcss_front_manager {
 				);
 
 		}
-
-		/*foreach ($exploded_order as $value) {
-
-			$return_content .= $this->wcss_render_button( $wcss_options, $value, $get_permalink, $button_size, $post, $post_title );
-
-		}*/
 
 		$return_content .= '</ul></div>';
 		?>
@@ -555,7 +542,7 @@ class Wcss_front_manager {
 
 			?>
 			<style type="text/css">
-				.wcss-below-title.wcss-social-sharing .wcss-share-btn, .wcss-after-content.wcss-social-sharing .wcss-share-btn {
+				.wcss-below-title.wcss-social-sharing .wcss-share-btn, .wcss-after-content.wcss-social-sharing .wcss-share-btn, .wcss-below-title.wcss-social-sharing .wcss-all-network-link, .wcss-after-content.wcss-social-sharing .wcss-all-network-link {
 					border-radius: <?php echo $wcss_options['border_radius']; ?>px;
 				}
 			</style>
@@ -592,4 +579,4 @@ class Wcss_front_manager {
 
 }
 
-$wcss_front = new Wcss_front_manager();
+$wcss_front = new Wcss_Front_Manager();
