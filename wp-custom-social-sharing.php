@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Custom Social Sharing
  * Description: A plugin to display social sharing.
- * Version: 1.5
+ * Version: 2.0
  * Author: WP Tiro
  * Author URI: http://wptiro.com
  * Text Domain: wcss-social-share
@@ -75,19 +75,18 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
         */
         public function wcss_admin_enqueues() {
 
-            $wcss_front = new Wcss_front_manager();
+            $wcss_front = new Wcss_Front_Manager();
 
-            $wcss_front->wcss_dequeue_other_fontawesome();//dequeue font-awesome if exists.
+            $wcss_front->wcss_dequeue_other_fontawesome(); // dequeue font-awesome if exists.
 
             wp_enqueue_style( 'wp-color-picker' );
             wp_enqueue_style( 'wcss-admin-fontawesome', WCSS_PLUGIN_URL . 'assets/css/all.min.css' );
 
-            wp_enqueue_style( 'wcss-admin-style', WCSS_PLUGIN_URL .'assets/css/wcss-admin-style.css', '', time() );
+            wp_enqueue_style( 'wcss-admin-style', WCSS_PLUGIN_URL . 'assets/css/wcss-admin-style.css', '', time() );
             wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap' );
 
             wp_enqueue_script( 'jquery-ui-sortable' );
-            wp_enqueue_script('jquery','https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
-	        wp_enqueue_script('jquery-ui','http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js');
+	        wp_enqueue_script( 'jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js' );
             wp_enqueue_script( 'wcss-admin-script', WCSS_PLUGIN_URL . 'assets/js/wcss-admin-script.js', array( 'wp-color-picker' ), false, true );
         }
 
@@ -96,7 +95,7 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
         */
         public function includes() {
 
-            if ( ! class_exists( 'Wcss_front_manager' ) ) {
+            if ( ! class_exists( 'Wcss_Front_Manager' ) ) {
                 include_once( WCSS_PLUGIN_DIR . 'includes/class-wcss-front-manager.php' );
             }
 
@@ -118,17 +117,11 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
                 return false;
             }
 
-            $wcss_settings_options  = get_option('wcss_settings_options');
+            $wcss_settings_options  = get_option( 'wcss_settings_options' );
             $wcss_options           = $wcss_settings_options['wcss_social_sharing'];
             $variables_array        = array();
             $input_options          = array();
             $posts_variables        = stripslashes_deep( $_POST['wcss_social_sharing'] );
-
-            echo "<pre>";
-            // print_r($posts_variables);
-            // print_r($input_options);
-            print_r($wcss_options);
-            echo "</pre>";
 
             $social_options_array = array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'blogger', 'buffer', 'digg', 'email', 'flipboard', 'odnoklassniki', 'pocket', 'reddit', 'skype', 'stumbleupon', 'telegram', 'tumblr', 'whatsapp', 'xing' );
 
@@ -141,7 +134,7 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
                     $input_options[$option_value]['enable'] = 'yes';
 
                     // Check if the button is enabled and push to the enabled array
-                    if ( !in_array( $option_value, $enabled_social_icons ) ) {
+                    if ( ! in_array( $option_value, $enabled_social_icons ) ) {
                         array_push( $enabled_social_icons, $option_value );
                     }
 
@@ -172,7 +165,6 @@ if ( ! class_exists( 'Wcss_Social_Share' ) ) {
 
             $variables_array['wcss_social_sharing']['border_radius'] = ( isset( $posts_variables['border_radius'] ) && ! empty( $posts_variables['border_radius'] ) ) ? intval( $posts_variables['border_radius'] ) : 0;
 
-            
             return $variables_array;
         }
 
