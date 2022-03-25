@@ -1,7 +1,8 @@
 <?php 
-if ( !defined( 'ABSPATH' ) ) exit;
-
-$wcss_settings_options = get_option('wcss_settings_options');
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+$wcss_settings_options = get_option( 'wcss_settings_options' );
 $wcss_options = $wcss_settings_options['wcss_social_sharing'];
 
 ?>
@@ -10,14 +11,14 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
     <div class="header-wrap">
         <div class="row">
             <div class="logo-wrap col-md-6 ver-center">
-                    <img class="logo" src="<?php echo plugin_dir_url( __DIR__ ).'assets/images/logov2.png'; ?>" alt="logo">
-                    <h1 class="title"><?php _e( 'WP Custom Social Sharing', 'wcss-social-share' ); ?><span class="version">1.0.1.1</span></h1>
+                    <img class="logo" src="<?php echo plugin_dir_url( __DIR__ ) . 'assets/images/logov2.png'; ?>" alt="logo">
+                    <h1 class="title"><?php _e( 'WP Custom Social Sharing', 'wcss-social-share' ); ?><span class="version">2.0</span></h1>
             </div>
 
 
             <div class="btn-wrap col-md-6">
-                <a href="#" class="wptg-btn btn2 dashicons-before dashicons-heart">support</a>
-                <a href="#" class="wptg-btn btn2 dashicons-before dashicons-star-filled">Rate us</a>
+                <a href="https://wordpress.org/support/plugin/wp-custom-social-sharing/" target="_blank" class="wptg-btn btn2 dashicons-before dashicons-heart">support</a>
+                <a href="https://wordpress.org/support/plugin/wp-custom-social-sharing/reviews/" target="_blank" class="wptg-btn btn2 dashicons-before dashicons-star-filled">Rate us</a>
             </div>
         </div>
     </div>
@@ -38,9 +39,6 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                     <li class="nav-tab"><a href="#design-settings" class="dashicons-before dashicons-admin-generic"><?php _e( 'Design Settings', 'wcss-social-share' ); ?></a></li>
                 </ul>
 
-                <div class="addbanner-wrap">
-                    <img src="<?php echo plugin_dir_url( __DIR__ ).'assets/images/add.jpg'; ?>" alt="add" class="add">
-                </div>
             </div>
 
             <div class="tab-right">
@@ -290,7 +288,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                                             <label for="enablepocket" class="custom-checkbox">
                                                                 <span class="wcss-share-btn">
                                                                     <span class="wcss-icon-pocket">
-                                                                        <i class="wcss-icon fab fa-pocket"></i>
+                                                                        <i class="wcss-icon fab fa-get-pocket"></i>
                                                                     </span>
                                                                     <?php _e( 'Pocket', 'wcss-social-share' ); ?>
                                                                 </span>
@@ -860,9 +858,9 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                 <div id="default-count" class="form-control-wrap">
 
                                     <input type="number" name="wcss_social_sharing[default_count]" value="<?php echo ( isset( $wcss_options['default_count'] ) && !empty( $wcss_options['default_count'] ) ) ? esc_attr( $wcss_options['default_count'] ) : 3; ?>" id="icon-default-count" class="form-control"/>
-                                    <small class="description" ><?php _e( 'Show the number of icons initially.', 'wcss-social-share' ); ?></small>
-
+                                    
                                 </div>
+                                <small class="description" ><?php _e( 'Show the number of icons initially.', 'wcss-social-share' ); ?></small>
 
                             </div>
                             <!-- End of Sectin to display the number of icons initially in front-->
@@ -893,6 +891,7 @@ $wcss_options = $wcss_settings_options['wcss_social_sharing'];
                                     <input type="number" name="wcss_social_sharing[border_radius]" value="<?php echo ( isset( $wcss_options['border_radius'] ) && !empty( $wcss_options['border_radius'] ) ) ? esc_attr( $wcss_options['border_radius'] ) : 0; ?>" id="icon-border-radius" class="form-control"/>
                                     <span>px</span>
                                 </div>
+                                <small class="description">Adds border-radius to the icons Before and After Content.</small>
 
                             </div>
                         </div> 
