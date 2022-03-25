@@ -1,20 +1,19 @@
 === WP Custom Social Sharing ===
-Contributors: wptiro, alokstha1
+Contributors: wptiro, alokstha1, shishta
 Plugin URI: https://wordpress.org/plugins/wp-custom-social-sharing/
 Tags: responsive social icons, responsive social sharing icons, responsive icon, social icons, social sharing, sharing icons, twitter share, whatsapp share, facebook share, linkedin share, pinterest share, share icon for custom post type, share icon for pages, share icon for posts
 Requires at least: 3.6
-Tested up to: 5.7
+Tested up to: 5.9.2
 License: GPLv3 or later
 
 == Description ==
 
-<strong>WP Custom Social Sharing</strong> is a free WordPress plugin that makes any content on you website social-share-friendly by allowing anyone easily share their website content (page, posts, custom post types, media) on some major social medias: Facebook, Twitter, Pinterest, LinkedIn and Whatsapp from your website.
+<strong>WP Custom Social Sharing</strong> is a free WordPress plugin that makes any content on you website social-share-friendly by allowing anyone easily share their website content (page, posts, custom post types, media) on some major social medias: Facebook, Twitter, Pinterest, LinkedIn, Blogger, Buffer, Digg, Email, Flipboard, Odnoklassniki, Pocket, Reddit, Skype, Stumbleupon, Telegram, Tumblr, Whats App, and Xing from your website.
 
-You can either enable/disable the social media profiles you want to activate and select the color for each individual icons.
+You can either enable/disable the social media profiles you want to activate and select the order for each of the icons. There is an option to set the default count of icons to show initially and rest of the icons along with the default count icons into a popup.
 
-This plugin provides the capability to select the position (above content, after content, floating left and inside image) all at once and 3 different sizes ( small, medium and large ).
+This plugin provides the capability to select the position (above content, after content, floating left and inside image), all at once and 3 different sizes ( small, medium and large ). 
 
-Note: Whatsapp is enabled only for mobile or other small device browsers.
 
 **Plugin Features**
 
@@ -44,6 +43,7 @@ Note: Whatsapp is enabled only for mobile or other small device browsers.
 1. Social Sharing Dashboard.
 2. Icons floating left
 3. Icons above and below the contents.
+4. Icons inside the popup.
 
 == Installation ==
 
@@ -54,6 +54,12 @@ Note: Whatsapp is enabled only for mobile or other small device browsers.
 3. Can also be uploaded from *Plugins->Add New* page and clicking on the *Upload Plugin* button at the top of the page and selecte the downloaded zipped folder.
 
 == Changelog ==
+
+= 2.0 - March 25 2022 =
+- New: Added some extra social media icons.
+- Enhance: Changed the backend interface of the plugin's option page.
+- Enhance: Added some design feature to the frontend.
+- Fix: Code improvements.
 
 = 1.5 - April 13, 2021 =
 - Updated Fontawesome to 5.15.3
